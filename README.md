@@ -37,12 +37,11 @@ group can select any node supplied by the provider.
 1. Add your nodes or subscription in Shadowrocket.
 2. Download and import [shadowrocket/sukka.conf](./shadowrocket/sukka.conf).
 3. Select the imported configuration and use configuration-based routing.
-4. Use `PROXY` to follow the node selected on the home screen, or select the
-   corresponding `Nodes` group to pin that service to a different node.
+4. Select `PROXY` or `DIRECT` for each routing category.
 
 The profile uses the nodes already managed by Shadowrocket. It does not contain
-or download a node subscription. `DIRECT` is available only where a direct route
-can be meaningful.
+or download a node subscription. `PROXY` follows the node selected on the home
+screen; `DIRECT` is available only where a direct route can be meaningful.
 
 ## Sukka profile
 
