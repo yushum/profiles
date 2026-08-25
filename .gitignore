@@ -1,0 +1,14 @@
+# Local operating system and editor files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Runtime and downloaded provider data
+providers/
+rule_providers/
+
+# Suggested names for private local copies
+*.private.yaml
+*.private.yml
+*.private.conf

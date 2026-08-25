@@ -1,0 +1,20 @@
+Profiles
+
+This repository contains unofficial client profiles built from third-party
+ruleset projects. It is not affiliated with, endorsed by, or supported by the
+upstream projects or client developers.
+
+Current third-party source:
+
+Sukka Ruleset
+Upstream: https://github.com/SukkaW/Surge
+Runtime rule server: https://ruleset.skk.moe
+Profile status: Modified and adapted for complete Mihomo and Shadowrocket use
+
+The upstream rule files are not vendored in this repository. They are fetched
+at runtime and remain subject to their upstream licenses and copyright notices.
+Most Sukka Ruleset files are licensed under AGPL-3.0. The upstream china_ip
+data is licensed under CC BY-SA 2.0.
+
+See each upstream repository for authoritative license and attribution details.
+Add a separate notice here before introducing another ruleset source.
