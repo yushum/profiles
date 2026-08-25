@@ -76,7 +76,6 @@ proxy-groups:
     type: select
     use:
       - "Subscription"
-    empty-fallback: REJECT
 
   - name: "AI"
     type: select
