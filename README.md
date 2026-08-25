@@ -37,20 +37,21 @@ group can select any node supplied by the provider.
 1. Add your nodes or subscription in Shadowrocket.
 2. Download and import [shadowrocket/sukka.conf](./shadowrocket/sukka.conf).
 3. Select the imported configuration and use configuration-based routing.
-4. Choose the desired node for each policy group.
+4. Use `PROXY` to follow the node selected on the home screen, or select the
+   corresponding `Nodes` group to pin that service to a different node.
 
 The profile uses the nodes already managed by Shadowrocket. It does not contain
-or download a node subscription.
+or download a node subscription. `DIRECT` is available only where a direct route
+can be meaningful.
 
 ## Sukka profile
 
 Both profiles fetch rule files from `ruleset.skk.moe` and preserve Sukka's
 required domain/non-IP-before-IP ordering.
 
-The available policies are:
+The routing categories are:
 
 ```text
-Proxy
 AI
 Telegram
 Streaming
@@ -61,6 +62,9 @@ Microsoft
 NetEase Music
 Download
 ```
+
+Mihomo exposes a `Proxy` policy group. Shadowrocket uses the built-in `PROXY`
+policy instead; it follows the node selected on the home screen.
 
 The base reject lists and Sogou Input privacy list are enabled. The Sogou list
 may affect account sync, dictionary updates, and feedback features. Sukka
