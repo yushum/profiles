@@ -109,24 +109,24 @@ proxy-groups:
   - name: "Speedtest"
     type: select
     proxies:
-      - DIRECT
       - "Proxy"
+      - DIRECT
     use:
       - "Subscription"
 
   - name: "Apple"
     type: select
     proxies:
-      - DIRECT
       - "Proxy"
+      - DIRECT
     use:
       - "Subscription"
 
   - name: "Microsoft"
     type: select
     proxies:
-      - DIRECT
       - "Proxy"
+      - DIRECT
     use:
       - "Subscription"
 
@@ -134,15 +134,14 @@ proxy-groups:
     type: select
     proxies:
       - DIRECT
-      - "Proxy"
     use:
       - "Subscription"
 
   - name: "Download"
     type: select
     proxies:
-      - DIRECT
       - "Proxy"
+      - DIRECT
     use:
       - "Subscription"
 
