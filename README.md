@@ -62,7 +62,7 @@ NetEase Music
 Download
 ```
 
-Mihomo exposes a `Proxy` policy group. Shadowrocket uses the built-in `PROXY`
+Mihomo exposes a `PROXY` policy group. Shadowrocket uses the built-in `PROXY`
 policy instead; it follows the node selected on the home screen.
 
 The base reject lists and Sogou Input privacy list are enabled. The Sogou list

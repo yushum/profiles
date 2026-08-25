@@ -72,7 +72,7 @@ proxy-providers:
 
 proxy-groups:
   # No region filtering: this group contains every node from the subscription.
-  - name: "Proxy"
+  - name: "PROXY"
     type: select
     use:
       - "Subscription"
@@ -80,28 +80,28 @@ proxy-groups:
   - name: "AI"
     type: select
     proxies:
-      - "Proxy"
+      - "PROXY"
     use:
       - "Subscription"
 
   - name: "Telegram"
     type: select
     proxies:
-      - "Proxy"
+      - "PROXY"
     use:
       - "Subscription"
 
   - name: "Streaming"
     type: select
     proxies:
-      - "Proxy"
+      - "PROXY"
     use:
       - "Subscription"
 
   - name: "CDN"
     type: select
     proxies:
-      - "Proxy"
+      - "PROXY"
       - DIRECT
     use:
       - "Subscription"
@@ -109,7 +109,7 @@ proxy-groups:
   - name: "Speedtest"
     type: select
     proxies:
-      - "Proxy"
+      - "PROXY"
       - DIRECT
     use:
       - "Subscription"
@@ -117,7 +117,7 @@ proxy-groups:
   - name: "Apple"
     type: select
     proxies:
-      - "Proxy"
+      - "PROXY"
       - DIRECT
     use:
       - "Subscription"
@@ -125,7 +125,7 @@ proxy-groups:
   - name: "Microsoft"
     type: select
     proxies:
-      - "Proxy"
+      - "PROXY"
       - DIRECT
     use:
       - "Subscription"
@@ -140,7 +140,7 @@ proxy-groups:
   - name: "Download"
     type: select
     proxies:
-      - "Proxy"
+      - "PROXY"
       - DIRECT
     use:
       - "Subscription"
@@ -470,7 +470,7 @@ rules:
   - RULE-SET,lan_non_ip,DIRECT
   - RULE-SET,domestic_non_ip,DIRECT
   - RULE-SET,direct_non_ip,DIRECT
-  - RULE-SET,global_non_ip,Proxy
+  - RULE-SET,global_non_ip,PROXY
 
   # ---------------------------------------------------------------------------
   # IP rules. Keep this entire block below the domain/non-IP rules.
@@ -484,4 +484,4 @@ rules:
   - RULE-SET,domestic_ip,DIRECT
   - RULE-SET,china_ip,DIRECT
 
-  - MATCH,Proxy
+  - MATCH,PROXY
