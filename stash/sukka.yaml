@@ -69,11 +69,13 @@ proxy-providers:
 proxy-groups:
   # No region filtering: this group contains every node from the subscription.
   - name: "PROXY"
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Proxy.png
     type: select
     use:
       - "Subscription"
 
   - name: "AI"
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/AI.png
     type: select
     proxies:
       - "PROXY"
@@ -81,6 +83,7 @@ proxy-groups:
       - "Subscription"
 
   - name: "Telegram"
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Telegram.png
     type: select
     proxies:
       - "PROXY"
@@ -88,6 +91,7 @@ proxy-groups:
       - "Subscription"
 
   - name: "Streaming"
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Streaming.png
     type: select
     proxies:
       - "PROXY"
@@ -95,6 +99,7 @@ proxy-groups:
       - "Subscription"
 
   - name: "CDN"
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Cloudflare.png
     type: select
     proxies:
       - "PROXY"
@@ -103,6 +108,7 @@ proxy-groups:
       - "Subscription"
 
   - name: "Speedtest"
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Speedtest.png
     type: select
     proxies:
       - "PROXY"
@@ -111,6 +117,7 @@ proxy-groups:
       - "Subscription"
 
   - name: "Apple"
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple.png
     type: select
     proxies:
       - "PROXY"
@@ -119,6 +126,7 @@ proxy-groups:
       - "Subscription"
 
   - name: "Microsoft"
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Microsoft.png
     type: select
     proxies:
       - "PROXY"
@@ -127,6 +135,7 @@ proxy-groups:
       - "Subscription"
 
   - name: "NetEase Music"
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Netease_Music.png
     type: select
     proxies:
       - DIRECT
@@ -134,6 +143,7 @@ proxy-groups:
       - "Subscription"
 
   - name: "Download"
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Download.png
     type: select
     proxies:
       - "PROXY"
