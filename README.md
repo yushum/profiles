@@ -6,9 +6,9 @@ Complete routing profiles built from public ruleset projects.
 
 ## Available profiles
 
-| Ruleset | Mihomo | Shadowrocket |
-| --- | --- | --- |
-| [Sukka Ruleset](https://github.com/SukkaW/Surge) | [sukka.yaml](./mihomo/sukka.yaml) | [sukka.conf](./shadowrocket/sukka.conf) |
+| Ruleset | Mihomo | Shadowrocket | Stash |
+| --- | --- | --- | --- |
+| [Sukka Ruleset](https://github.com/SukkaW/Surge) | [sukka.yaml](./mihomo/sukka.yaml) | [sukka.conf](./shadowrocket/sukka.conf) | [sukka.yaml](./stash/sukka.yaml) |
 
 > [!IMPORTANT]
 > These are unofficial community profiles. Please report profile-specific issues
@@ -43,9 +43,29 @@ The profile uses the nodes already managed by Shadowrocket. It does not contain
 or download a node subscription. `PROXY` follows the node selected on the home
 screen; `DIRECT` is available only where a direct route can be meaningful.
 
+### Stash
+
+The Stash profile targets Stash on iOS, macOS, tvOS, and visionOS.
+
+1. Download [stash/sukka.yaml](./stash/sukka.yaml).
+2. Replace the placeholder proxy-provider URL with your subscription URL:
+
+   ```yaml
+   url: "https://example.com/REPLACE_WITH_YOUR_SUBSCRIPTION_URL"
+   ```
+
+3. Import the file into Stash (via AirDrop, iCloud, or paste the URL in
+   Stash → Settings → Configuration Files → Download from URL).
+4. Select the imported configuration and tap Start on the home screen.
+
+Stash uses Fake IP by default. The profile includes a QUIC-blocking script
+shortcut to force TCP, which most proxy protocols handle more efficiently.
+`REJECT-NO-DROP` is not available in Stash; the upstream reject-no-drop ruleset
+is mapped to `REJECT` instead.
+
 ## Sukka profile
 
-Both profiles fetch rule files from `ruleset.skk.moe` and preserve Sukka's
+All profiles fetch rule files from `ruleset.skk.moe` and preserve Sukka's
 required domain/non-IP-before-IP ordering.
 
 The routing categories are:
@@ -62,15 +82,15 @@ NetEase Music
 Download
 ```
 
-Mihomo exposes a `PROXY` policy group. Shadowrocket uses the built-in `PROXY`
-policy instead; it follows the node selected on the home screen.
+Mihomo and Stash expose a `PROXY` policy group. Shadowrocket uses the built-in
+`PROXY` policy instead; it follows the node selected on the home screen.
 
 The base reject lists and Sogou Input privacy list are enabled. The Sogou list
 may affect account sync, dictionary updates, and feedback features. Sukka
 recommends dedicated content-blocking software instead of large reject lists on
 mobile platforms.
 
-Shadowrocket is not an officially supported Sukka Ruleset target. Some
+Shadowrocket and Stash are not officially supported Sukka Ruleset targets. Some
 desktop-only process rules may have no effect on iOS.
 
 ## Repository layout
@@ -81,6 +101,8 @@ desktop-only process rules may have no effect on iOS.
 │   └── sukka.yaml
 ├── shadowrocket/
 │   └── sukka.conf
+├── stash/
+│   └── sukka.yaml
 ├── .gitignore
 ├── LICENSE
 ├── NOTICE

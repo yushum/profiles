@@ -9,7 +9,7 @@ Current third-party source:
 Sukka Ruleset
 Upstream: https://github.com/SukkaW/Surge
 Runtime rule server: https://ruleset.skk.moe
-Profile status: Modified and adapted for complete Mihomo and Shadowrocket use
+Profile status: Modified and adapted for complete Mihomo, Shadowrocket, and Stash use
 
 The upstream rule files are not vendored in this repository. They are fetched
 at runtime and remain subject to their upstream licenses and copyright notices.

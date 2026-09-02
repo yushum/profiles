@@ -1,0 +1,424 @@
+# SPDX-License-Identifier: AGPL-3.0-only
+# Sukka Ruleset for Stash (iOS / macOS / tvOS / visionOS)
+# Community adaptation, not an official SukkaW/Surge deliverable.
+# Upstream: https://github.com/SukkaW/Surge
+# Rule server: https://ruleset.skk.moe
+#
+# Before importing, replace the proxy-provider URL below with your own
+# subscription URL. Do not publish a configuration containing that private URL.
+#
+# Stash uses Fake IP by default; fake-ip-filter lists domains that must
+# resolve to their real addresses. On mobile devices 1–2 DNS servers are
+# recommended to conserve battery and memory.
+
+mode: rule
+log-level: warning
+ipv6: false
+
+dns:
+  # Bootstrap DNS: resolves hostnames of other DNS servers.
+  # Must use IP addresses (except for "system").
+  default-nameserver:
+    - 223.5.5.5
+    - 119.29.29.29
+  nameserver:
+    - https://doh.pub/dns-query
+    - https://dns.alidns.com/dns-query
+  # Resolve proxy server domain names independently to prevent recursion.
+  proxy-server-nameserver:
+    - https://doh.pub/dns-query
+    - https://dns.alidns.com/dns-query
+  # Domains that must resolve to real IPs instead of Fake IPs.
+  fake-ip-filter:
+    - "+.lan"
+    - "+.local"
+    - "+.home.arpa"
+    - "localhost"
+    - "localhost.*"
+    - "+.msftconnecttest.com"
+    - "+.msftncsi.com"
+    - "time.windows.com"
+    - "time.apple.com"
+    - "+.pool.ntp.org"
+    - "+.ntp.org"
+    - "+.stun.*.*"
+    - "+.stun.*.*.*"
+    - "+.stun.*.*.*.*"
+    - "+.stun.*.*.*.*.*"
+    - "lens.l.google.com"
+    - "*.n.n.srv.nintendo.net"
+    - "+.stun.playstation.net"
+    - "xbox.*.*.microsoft.com"
+    - "*.*.xboxlive.com"
+    - "*.mcdn.bilivideo.cn"
+    - "music.163.com"
+    - "+.music.163.com"
+
+# Disable QUIC so traffic is forwarded over TCP, which proxies handle better.
+script:
+  shortcuts:
+    quic: network == 'udp' and dst_port == 443
+
+proxy-providers:
+  "Subscription":
+    # Replace the next URL locally. Subscription URLs are private credentials.
+    url: "https://example.com/REPLACE_WITH_YOUR_SUBSCRIPTION_URL"
+    path: ./providers/my-subscription.yaml
+    interval: 21600
+
+proxy-groups:
+  # No region filtering: this group contains every node from the subscription.
+  - name: "PROXY"
+    type: select
+    use:
+      - "Subscription"
+
+  - name: "AI"
+    type: select
+    proxies:
+      - "PROXY"
+    use:
+      - "Subscription"
+
+  - name: "Telegram"
+    type: select
+    proxies:
+      - "PROXY"
+    use:
+      - "Subscription"
+
+  - name: "Streaming"
+    type: select
+    proxies:
+      - "PROXY"
+    use:
+      - "Subscription"
+
+  - name: "CDN"
+    type: select
+    proxies:
+      - "PROXY"
+      - DIRECT
+    use:
+      - "Subscription"
+
+  - name: "Speedtest"
+    type: select
+    proxies:
+      - "PROXY"
+      - DIRECT
+    use:
+      - "Subscription"
+
+  - name: "Apple"
+    type: select
+    proxies:
+      - "PROXY"
+      - DIRECT
+    use:
+      - "Subscription"
+
+  - name: "Microsoft"
+    type: select
+    proxies:
+      - "PROXY"
+      - DIRECT
+    use:
+      - "Subscription"
+
+  - name: "NetEase Music"
+    type: select
+    proxies:
+      - DIRECT
+    use:
+      - "Subscription"
+
+  - name: "Download"
+    type: select
+    proxies:
+      - "PROXY"
+      - DIRECT
+    use:
+      - "Subscription"
+
+rule-providers:
+  reject_non_ip_drop:
+    behavior: classical
+    format: text
+    interval: 43200
+    url: https://ruleset.skk.moe/Clash/non_ip/reject-drop.txt
+    path: ./rule_providers/sukka/reject_non_ip_drop.txt
+
+  reject_domainset:
+    behavior: domain
+    format: text
+    interval: 43200
+    url: https://ruleset.skk.moe/Clash/domainset/reject.txt
+    path: ./rule_providers/sukka/reject_domainset.txt
+
+  reject_non_ip:
+    behavior: classical
+    format: text
+    interval: 43200
+    url: https://ruleset.skk.moe/Clash/non_ip/reject.txt
+    path: ./rule_providers/sukka/reject_non_ip.txt
+
+  reject_non_ip_no_drop:
+    behavior: classical
+    format: text
+    interval: 43200
+    url: https://ruleset.skk.moe/Clash/non_ip/reject-no-drop.txt
+    path: ./rule_providers/sukka/reject_non_ip_no_drop.txt
+
+  reject_ip:
+    behavior: classical
+    format: text
+    interval: 43200
+    url: https://ruleset.skk.moe/Clash/ip/reject.txt
+    path: ./rule_providers/sukka/reject_ip.txt
+
+  sogouinput:
+    behavior: classical
+    format: text
+    interval: 43200
+    url: https://ruleset.skk.moe/Clash/non_ip/sogouinput.txt
+    path: ./rule_providers/sukka/sogouinput.txt
+
+  speedtest:
+    behavior: domain
+    format: text
+    interval: 43200
+    url: https://ruleset.skk.moe/Clash/domainset/speedtest.txt
+    path: ./rule_providers/sukka/speedtest.txt
+
+  cdn_domainset:
+    behavior: domain
+    format: text
+    interval: 43200
+    url: https://ruleset.skk.moe/Clash/domainset/cdn.txt
+    path: ./rule_providers/sukka/cdn_domainset.txt
+
+  cdn_non_ip:
+    behavior: classical
+    format: text
+    interval: 43200
+    url: https://ruleset.skk.moe/Clash/non_ip/cdn.txt
+    path: ./rule_providers/sukka/cdn_non_ip.txt
+
+  stream_non_ip:
+    behavior: classical
+    format: text
+    interval: 43200
+    url: https://ruleset.skk.moe/Clash/non_ip/stream.txt
+    path: ./rule_providers/sukka/stream_non_ip.txt
+
+  stream_ip:
+    behavior: classical
+    format: text
+    interval: 43200
+    url: https://ruleset.skk.moe/Clash/ip/stream.txt
+    path: ./rule_providers/sukka/stream_ip.txt
+
+  ai_non_ip:
+    behavior: classical
+    format: text
+    interval: 43200
+    url: https://ruleset.skk.moe/Clash/non_ip/ai.txt
+    path: ./rule_providers/sukka/ai_non_ip.txt
+
+  apple_intelligence_non_ip:
+    behavior: classical
+    format: text
+    interval: 43200
+    url: https://ruleset.skk.moe/Clash/non_ip/apple_intelligence.txt
+    path: ./rule_providers/sukka/apple_intelligence_non_ip.txt
+
+  ai_ip:
+    behavior: classical
+    format: text
+    interval: 43200
+    url: https://ruleset.skk.moe/Clash/ip/ai.txt
+    path: ./rule_providers/sukka/ai_ip.txt
+
+  telegram_non_ip:
+    behavior: classical
+    format: text
+    interval: 43200
+    url: https://ruleset.skk.moe/Clash/non_ip/telegram.txt
+    path: ./rule_providers/sukka/telegram_non_ip.txt
+
+  telegram_ip:
+    behavior: classical
+    format: text
+    interval: 43200
+    url: https://ruleset.skk.moe/Clash/ip/telegram.txt
+    path: ./rule_providers/sukka/telegram_ip.txt
+
+  apple_cdn:
+    behavior: domain
+    format: text
+    interval: 43200
+    url: https://ruleset.skk.moe/Clash/domainset/apple_cdn.txt
+    path: ./rule_providers/sukka/apple_cdn.txt
+
+  apple_services:
+    behavior: classical
+    format: text
+    interval: 43200
+    url: https://ruleset.skk.moe/Clash/non_ip/apple_services.txt
+    path: ./rule_providers/sukka/apple_services.txt
+
+  apple_cn_non_ip:
+    behavior: classical
+    format: text
+    interval: 43200
+    url: https://ruleset.skk.moe/Clash/non_ip/apple_cn.txt
+    path: ./rule_providers/sukka/apple_cn_non_ip.txt
+
+  microsoft_cdn_non_ip:
+    behavior: classical
+    format: text
+    interval: 43200
+    url: https://ruleset.skk.moe/Clash/non_ip/microsoft_cdn.txt
+    path: ./rule_providers/sukka/microsoft_cdn_non_ip.txt
+
+  microsoft_non_ip:
+    behavior: classical
+    format: text
+    interval: 43200
+    url: https://ruleset.skk.moe/Clash/non_ip/microsoft.txt
+    path: ./rule_providers/sukka/microsoft_non_ip.txt
+
+  neteasemusic_non_ip:
+    behavior: classical
+    format: text
+    interval: 43200
+    url: https://ruleset.skk.moe/Clash/non_ip/neteasemusic.txt
+    path: ./rule_providers/sukka/neteasemusic_non_ip.txt
+
+  neteasemusic_ip:
+    behavior: classical
+    format: text
+    interval: 43200
+    url: https://ruleset.skk.moe/Clash/ip/neteasemusic.txt
+    path: ./rule_providers/sukka/neteasemusic_ip.txt
+
+  download_domainset:
+    behavior: domain
+    format: text
+    interval: 43200
+    url: https://ruleset.skk.moe/Clash/domainset/download.txt
+    path: ./rule_providers/sukka/download_domainset.txt
+
+  download_non_ip:
+    behavior: classical
+    format: text
+    interval: 43200
+    url: https://ruleset.skk.moe/Clash/non_ip/download.txt
+    path: ./rule_providers/sukka/download_non_ip.txt
+
+  lan_non_ip:
+    behavior: classical
+    format: text
+    interval: 43200
+    url: https://ruleset.skk.moe/Clash/non_ip/lan.txt
+    path: ./rule_providers/sukka/lan_non_ip.txt
+
+  lan_ip:
+    behavior: classical
+    format: text
+    interval: 43200
+    url: https://ruleset.skk.moe/Clash/ip/lan.txt
+    path: ./rule_providers/sukka/lan_ip.txt
+
+  domestic_non_ip:
+    behavior: classical
+    format: text
+    interval: 43200
+    url: https://ruleset.skk.moe/Clash/non_ip/domestic.txt
+    path: ./rule_providers/sukka/domestic_non_ip.txt
+
+  direct_non_ip:
+    behavior: classical
+    format: text
+    interval: 43200
+    url: https://ruleset.skk.moe/Clash/non_ip/direct.txt
+    path: ./rule_providers/sukka/direct_non_ip.txt
+
+  global_non_ip:
+    behavior: classical
+    format: text
+    interval: 43200
+    url: https://ruleset.skk.moe/Clash/non_ip/global.txt
+    path: ./rule_providers/sukka/global_non_ip.txt
+
+  domestic_ip:
+    behavior: classical
+    format: text
+    interval: 43200
+    url: https://ruleset.skk.moe/Clash/ip/domestic.txt
+    path: ./rule_providers/sukka/domestic_ip.txt
+
+  china_ip:
+    behavior: ipcidr
+    format: text
+    interval: 43200
+    url: https://ruleset.skk.moe/Clash/ip/china_ip.txt
+    path: ./rule_providers/sukka/china_ip.txt
+
+rules:
+  # Disable QUIC to force TCP which proxies handle more efficiently.
+  - SCRIPT,quic,REJECT
+
+  # ---------------------------------------------------------------------------
+  # Domain and non-IP rules. Keep this entire block above every IP rule.
+  # ---------------------------------------------------------------------------
+  - RULE-SET,reject_non_ip_drop,REJECT-DROP
+  - RULE-SET,reject_domainset,REJECT
+  - RULE-SET,reject_non_ip,REJECT
+  # Stash does not have REJECT-NO-DROP; use REJECT instead. These are P2P/CDN
+  # domains that Sukka recommends blocking without silent drop.
+  - RULE-SET,reject_non_ip_no_drop,REJECT
+
+  # Blocks Sogou Input telemetry; may affect account sync and dictionary updates.
+  - RULE-SET,sogouinput,REJECT
+
+  - RULE-SET,speedtest,Speedtest
+  - RULE-SET,cdn_domainset,CDN
+  - RULE-SET,cdn_non_ip,CDN
+
+  # One policy for every streaming service; no regional splitting.
+  - RULE-SET,stream_non_ip,Streaming
+
+  - RULE-SET,ai_non_ip,AI
+  - RULE-SET,apple_intelligence_non_ip,AI
+  - RULE-SET,telegram_non_ip,Telegram
+
+  - RULE-SET,apple_cdn,DIRECT
+  - RULE-SET,apple_services,Apple
+  - RULE-SET,apple_cn_non_ip,DIRECT
+  - RULE-SET,microsoft_cdn_non_ip,DIRECT
+  - RULE-SET,microsoft_non_ip,Microsoft
+
+  - RULE-SET,neteasemusic_non_ip,NetEase Music
+  - RULE-SET,download_domainset,Download
+  - RULE-SET,download_non_ip,Download
+
+  - RULE-SET,lan_non_ip,DIRECT
+  - RULE-SET,domestic_non_ip,DIRECT
+  - RULE-SET,direct_non_ip,DIRECT
+  - RULE-SET,global_non_ip,PROXY
+
+  # ---------------------------------------------------------------------------
+  # IP rules. Keep this entire block below the domain/non-IP rules.
+  # ---------------------------------------------------------------------------
+  - RULE-SET,reject_ip,REJECT
+  - RULE-SET,stream_ip,Streaming
+  - RULE-SET,ai_ip,AI
+  - RULE-SET,telegram_ip,Telegram
+  - RULE-SET,neteasemusic_ip,NetEase Music
+  - RULE-SET,lan_ip,DIRECT
+  - RULE-SET,domestic_ip,DIRECT
+  - RULE-SET,china_ip,DIRECT
+
+  - MATCH,PROXY
