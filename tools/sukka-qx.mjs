@@ -28,8 +28,9 @@
 //   URL-REGEX / PROCESS-NAME / USER-AGENT / AND / OR / NOT and anything unknown
 //                   -> dropped and reported
 //
-// Output lines carry no policy; the [filter_remote] force-policy param in
-// qx/sukka.conf assigns one. Files are only rewritten when the upstream
+// Output lines carry the target policy as the third field; the [filter_remote]
+// force-policy param in qx/sukka.conf overrides it (both are the same value).
+// Files are only rewritten when the upstream
 // $content-hash-v1$ changes, so untouched runs produce an empty git diff.
 
 import { execFile } from 'node:child_process';
@@ -49,45 +50,49 @@ const FORCE = process.argv.includes('--force');
 // across reject/reject_extra/reject_phishing), so the two extras are not
 // converted. reject-url-regex is Surge MITM-only. china_ip/lan (IP lists) are
 // replaced by Quantumult X's built-in FILTER_REGION/FILTER_LAN snippets.
+// Quantumult X filter files carry the policy in each line (3 fields, like the
+// official crossutility filter.snippet); the force-policy param in the
+// [filter_remote] entry overrides it at load time. Both are set to the same
+// value so the files work regardless.
 const SOURCES = [
   // Ad / privacy / malware blocking -> REJECT
-  { name: 'reject-drop', src: 'non_ip/reject-drop.conf' },
-  { name: 'reject-domainset', src: 'domainset/reject.conf' },
-  { name: 'reject', src: 'non_ip/reject.conf' },
-  { name: 'reject-no-drop', src: 'non_ip/reject-no-drop.conf' },
-  { name: 'sogouinput', src: 'non_ip/sogouinput.conf' },
+  { name: 'reject-drop', src: 'non_ip/reject-drop.conf', policy: 'reject' },
+  { name: 'reject-domainset', src: 'domainset/reject.conf', policy: 'reject' },
+  { name: 'reject', src: 'non_ip/reject.conf', policy: 'reject' },
+  { name: 'reject-no-drop', src: 'non_ip/reject-no-drop.conf', policy: 'reject' },
+  { name: 'sogouinput', src: 'non_ip/sogouinput.conf', policy: 'reject' },
   // Speedtest / CDN
-  { name: 'speedtest', src: 'domainset/speedtest.conf' },
-  { name: 'cdn-domainset', src: 'domainset/cdn.conf' },
-  { name: 'cdn', src: 'non_ip/cdn.conf' },
+  { name: 'speedtest', src: 'domainset/speedtest.conf', policy: 'Speedtest' },
+  { name: 'cdn-domainset', src: 'domainset/cdn.conf', policy: 'CDN' },
+  { name: 'cdn', src: 'non_ip/cdn.conf', policy: 'CDN' },
   // Streaming
-  { name: 'stream', src: 'non_ip/stream.conf' },
-  { name: 'ip-stream', src: 'ip/stream.conf' },
+  { name: 'stream', src: 'non_ip/stream.conf', policy: 'Streaming' },
+  { name: 'ip-stream', src: 'ip/stream.conf', policy: 'Streaming' },
   // AI / Telegram
-  { name: 'ai', src: 'non_ip/ai.conf' },
-  { name: 'apple-intelligence', src: 'non_ip/apple_intelligence.conf' },
-  { name: 'ip-ai', src: 'ip/ai.conf' },
-  { name: 'telegram', src: 'non_ip/telegram.conf' },
-  { name: 'ip-telegram', src: 'ip/telegram.conf' },
+  { name: 'ai', src: 'non_ip/ai.conf', policy: 'AI' },
+  { name: 'apple-intelligence', src: 'non_ip/apple_intelligence.conf', policy: 'AI' },
+  { name: 'ip-ai', src: 'ip/ai.conf', policy: 'AI' },
+  { name: 'telegram', src: 'non_ip/telegram.conf', policy: 'Telegram' },
+  { name: 'ip-telegram', src: 'ip/telegram.conf', policy: 'Telegram' },
   // Apple / Microsoft
-  { name: 'apple-cdn-domainset', src: 'domainset/apple_cdn.conf' },
-  { name: 'apple-services', src: 'non_ip/apple_services.conf' },
-  { name: 'apple-cn', src: 'non_ip/apple_cn.conf' },
-  { name: 'microsoft-cdn', src: 'non_ip/microsoft_cdn.conf' },
-  { name: 'microsoft', src: 'non_ip/microsoft.conf' },
+  { name: 'apple-cdn-domainset', src: 'domainset/apple_cdn.conf', policy: 'direct' },
+  { name: 'apple-services', src: 'non_ip/apple_services.conf', policy: 'Apple' },
+  { name: 'apple-cn', src: 'non_ip/apple_cn.conf', policy: 'direct' },
+  { name: 'microsoft-cdn', src: 'non_ip/microsoft_cdn.conf', policy: 'direct' },
+  { name: 'microsoft', src: 'non_ip/microsoft.conf', policy: 'Microsoft' },
   // NetEase Music / Download
-  { name: 'neteasemusic', src: 'non_ip/neteasemusic.conf' },
-  { name: 'ip-neteasemusic', src: 'ip/neteasemusic.conf' },
-  { name: 'download-domainset', src: 'domainset/download.conf' },
-  { name: 'download', src: 'non_ip/download.conf' },
+  { name: 'neteasemusic', src: 'non_ip/neteasemusic.conf', policy: 'NetEase Music' },
+  { name: 'ip-neteasemusic', src: 'ip/neteasemusic.conf', policy: 'NetEase Music' },
+  { name: 'download-domainset', src: 'domainset/download.conf', policy: 'Download' },
+  { name: 'download', src: 'non_ip/download.conf', policy: 'Download' },
   // Domestic / direct / global
-  { name: 'lan', src: 'non_ip/lan.conf' },
-  { name: 'domestic', src: 'non_ip/domestic.conf' },
-  { name: 'direct', src: 'non_ip/direct.conf' },
-  { name: 'global', src: 'non_ip/global.conf' },
+  { name: 'lan', src: 'non_ip/lan.conf', policy: 'direct' },
+  { name: 'domestic', src: 'non_ip/domestic.conf', policy: 'direct' },
+  { name: 'direct', src: 'non_ip/direct.conf', policy: 'direct' },
+  { name: 'global', src: 'non_ip/global.conf', policy: 'proxy' },
   // IP-based routing (excluding china_ip -> FILTER_REGION, lan -> FILTER_LAN)
-  { name: 'ip-reject', src: 'ip/reject.conf' },
-  { name: 'ip-domestic', src: 'ip/domestic.conf' },
+  { name: 'ip-reject', src: 'ip/reject.conf', policy: 'reject' },
+  { name: 'ip-domestic', src: 'ip/domestic.conf', policy: 'direct' },
 ];
 
 // Single-label names ("unifi", "lan") and ccTLD suffixes ("ac", "ai") are valid
@@ -206,7 +211,7 @@ function parseList(source, text) {
       source.src.startsWith('domainset/') ? convertDomainSetLine(line, stats) : convertSurgeLine(line, stats);
     if (converted === null || seen.has(converted)) continue;
     seen.add(converted);
-    lines.push(converted);
+    lines.push(`${converted},${source.policy}`);
   }
 
   return { lines, stats, contentHash, upstreamUpdated };
@@ -260,7 +265,7 @@ async function main() {
       `# Upstream content hash: ${parsed.contentHash ?? 'unknown'}`,
       '# Generated by tools/sukka-qx.mjs — community adaptation, not an official SukkaW/Surge deliverable.',
       '# License: AGPL-3.0 — https://github.com/SukkaW/Surge',
-      '# Quantumult X filter format. Lines carry no policy; assign one via force-policy in [filter_remote].',
+      '# Quantumult X filter format. Each line carries the policy assigned by [filter_remote] in qx/sukka.conf; force-policy overrides it.',
       `# Rules: ${parsed.lines.length} emitted, ${parsed.stats.approximated} approximated from dot-prefixed DOMAIN-SET lines, dropped: ${droppedText}`,
     ];
 
