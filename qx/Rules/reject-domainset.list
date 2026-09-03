@@ -6,7 +6,6 @@
 # License: AGPL-3.0 — https://github.com/SukkaW/Surge
 # Quantumult X filter format. Each line carries the policy assigned by [filter_remote] in qx/sukka.conf; force-policy overrides it.
 # Rules: 135624 emitted, 134469 approximated from dot-prefixed DOMAIN-SET lines, dropped: none
-host-suffix,7h15.ru1353t.1s.m4d3.by.5ukk4w.skk.moe,reject
 host-suffix,data,reject
 host-suffix,24.eu,reject
 host-suffix,51.la,reject

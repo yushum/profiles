@@ -6,7 +6,6 @@
 # License: AGPL-3.0 — https://github.com/SukkaW/Surge
 # Quantumult X filter format. Each line carries the policy assigned by [filter_remote] in qx/sukka.conf; force-policy overrides it.
 # Rules: 3363 emitted, 112 approximated from dot-prefixed DOMAIN-SET lines, dropped: none
-host-suffix,7h15.ru1353t.1s.m4d3.by.5ukk4w.skk.moe,Speedtest
 host-suffix,fast.com,Speedtest
 host-suffix,fastme.ir,Speedtest
 host-suffix,nperf.net,Speedtest
@@ -3311,7 +3310,6 @@ host-suffix,speedtest.mumbai.charotarbroadband.in,Speedtest
 host-suffix,speedtest01-cty-gfld-ma-prod.gcet.net,Speedtest
 host-suffix,speedtest1.ric1.va.hostedbackbone.net,Speedtest
 host-suffix,speedtestbirpara.meghbelabroadband.in,Speedtest
-host-suffix,7h15_ru1353t_1s_m4d3_by_5ukk4w.skk.moe,Speedtest
 host-suffix,los-angeles-speedtest.reliablesite.net,Speedtest
 host-suffix,navegaooklafortaleza.navegamais.com.br,Speedtest
 host-suffix,speedtest-tesa.coelhotecnologia.com.br,Speedtest

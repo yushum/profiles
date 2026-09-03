@@ -99,6 +99,11 @@ const SOURCES = [
 // rules and must not be rejected. Underscores are technically not DNS-legal but
 // real-world hosts (and Sukka's own canary domain) use them.
 const DOMAIN_RE = /^[a-z0-9_]([a-z0-9_-]*[a-z0-9_])?(\.[a-z0-9_]([a-z0-9_-]*[a-z0-9_])?)*$/i;
+
+// Upstream watermark / canary domain embedded in every rule file; it serves no
+// routing purpose and is stripped during conversion.
+const CANARY_RE = /7h15[._]ru1353t[._]1s[._]m4d3[._]by[._]5ukk4w[._]skk[._]moe/i;
+
 const WILDCARD_RE = /^[a-z0-9?*.-]{1,253}$/i;
 const IPV4_CIDR_RE = /^(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})\/(\d{1,2})$/;
 const IPV6_CIDR_RE = /^[0-9a-f:]+\/\d{1,3}$/i;
@@ -207,6 +212,8 @@ function parseList(source, text) {
   for (const raw of text.split('\n')) {
     const line = raw.trim();
     if (line === '' || line.startsWith('#') || line.startsWith(';')) continue;
+    // Strip upstream watermark / canary domain.
+    if (CANARY_RE.test(line)) continue;
     const converted =
       source.src.startsWith('domainset/') ? convertDomainSetLine(line, stats) : convertSurgeLine(line, stats);
     if (converted === null || seen.has(converted)) continue;
