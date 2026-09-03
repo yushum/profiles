@@ -1,0 +1,275 @@
+{
+  "upstream": {
+    "repo": "https://github.com/SukkaW/Surge",
+    "headSha": "d189f8d5d65d1b8e4bb5400fc9c6fed3cd157f45"
+  },
+  "files": {
+    "reject-drop": {
+      "source": "non_ip/reject-drop.conf",
+      "contentHash": "O5LorNmqJuxol6-Y3WgqPE9Iszdz1BAQennk_Ad6ktk",
+      "upstreamUpdated": "2026-08-30T07:31:52.226Z",
+      "rules": 29,
+      "approximated": 0,
+      "dropped": {}
+    },
+    "reject-domainset": {
+      "source": "domainset/reject.conf",
+      "contentHash": "uuB0VUAOnTE1WvcgPRHwE0AsWxPfsMHmvBt39VFVLv8",
+      "upstreamUpdated": "2026-09-02T14:04:28.905Z",
+      "rules": 135583,
+      "approximated": 134428,
+      "dropped": {}
+    },
+    "reject": {
+      "source": "non_ip/reject.conf",
+      "contentHash": "TI2f7_KaaHNeBF_3PqL1Z5Exu2XSI0LIXSmVngobkfM",
+      "upstreamUpdated": "2026-08-09T16:01:35.176Z",
+      "rules": 367,
+      "approximated": 0,
+      "dropped": {
+        "url-regex": 3
+      }
+    },
+    "reject-no-drop": {
+      "source": "non_ip/reject-no-drop.conf",
+      "contentHash": "124mXAwCOn0RJq0Psx6DxcV-dpZqJjo0s50kTQ_t0Xo",
+      "upstreamUpdated": "2026-08-30T07:31:52.265Z",
+      "rules": 45,
+      "approximated": 0,
+      "dropped": {
+        "logic": 1
+      }
+    },
+    "sogouinput": {
+      "source": "non_ip/sogouinput.conf",
+      "contentHash": "sONBbCq9K1oAt_qZTCxXcfzJULX8xQkT44MbiKyNDs0",
+      "upstreamUpdated": "2026-08-05T12:33:04.436Z",
+      "rules": 10,
+      "approximated": 0,
+      "dropped": {
+        "user-agent": 2,
+        "process-name": 3
+      }
+    },
+    "speedtest": {
+      "source": "domainset/speedtest.conf",
+      "contentHash": "8ORtEbGjVEuA-GTP7u34WwEVdPYDizcDJVisakt4UzY",
+      "upstreamUpdated": "2026-09-01T19:55:55.674Z",
+      "rules": 3363,
+      "approximated": 112,
+      "dropped": {}
+    },
+    "cdn-domainset": {
+      "source": "domainset/cdn.conf",
+      "contentHash": "mSX06OhWUQcAXJZclvk6EbJdvaooc7eY9P7ZGzin4zY",
+      "upstreamUpdated": "2026-09-02T08:32:50.993Z",
+      "rules": 4651,
+      "approximated": 1228,
+      "dropped": {}
+    },
+    "cdn": {
+      "source": "non_ip/cdn.conf",
+      "contentHash": "XSnANR2ej23eV7GFbIL1wqIzrZ_522OY7Ubzre7S8X4",
+      "upstreamUpdated": "2026-08-19T01:29:53.827Z",
+      "rules": 84,
+      "approximated": 0,
+      "dropped": {}
+    },
+    "stream": {
+      "source": "non_ip/stream.conf",
+      "contentHash": "zUz1VG1GEGDNA7O_peH1kT11FMk5EfMyBg-nwRQGpoE",
+      "upstreamUpdated": "2026-08-05T12:33:03.807Z",
+      "rules": 273,
+      "approximated": 0,
+      "dropped": {
+        "user-agent": 49,
+        "process-name": 14
+      }
+    },
+    "ip-stream": {
+      "source": "ip/stream.conf",
+      "contentHash": "5KP69tA3ZiWzJLoVRbQzN3Nl5Aq80EEPLEmrcuKwTEk",
+      "upstreamUpdated": "2026-08-05T12:33:03.807Z",
+      "rules": 20,
+      "approximated": 0,
+      "dropped": {}
+    },
+    "ai": {
+      "source": "non_ip/ai.conf",
+      "contentHash": "l2ICeXyMY-UpWKEQ39CTDIyO5vkAewbHS5os3IHXpjE",
+      "upstreamUpdated": "2026-08-07T06:33:36.625Z",
+      "rules": 50,
+      "approximated": 0,
+      "dropped": {
+        "url-regex": 1
+      }
+    },
+    "apple-intelligence": {
+      "source": "non_ip/apple_intelligence.conf",
+      "contentHash": "mM7ABwLpXn1--ksvD1oM7ChSbu1LyTRYRKRZhT-up34",
+      "upstreamUpdated": "2026-08-05T12:33:04.404Z",
+      "rules": 6,
+      "approximated": 0,
+      "dropped": {}
+    },
+    "ip-ai": {
+      "source": "ip/ai.conf",
+      "contentHash": "7ePsedVTy4qFWs1-ctLTUgKS5TU8TaQE2-2VkF36A0c",
+      "upstreamUpdated": "2026-03-26T20:12:45.451Z",
+      "rules": 24,
+      "approximated": 0,
+      "dropped": {}
+    },
+    "telegram": {
+      "source": "non_ip/telegram.conf",
+      "contentHash": "N5Chi4AVgtC3LLLZlmGjDDDOXFQFBqND031e-y63yX8",
+      "upstreamUpdated": "2026-08-05T12:33:04.439Z",
+      "rules": 15,
+      "approximated": 0,
+      "dropped": {}
+    },
+    "ip-telegram": {
+      "source": "ip/telegram.conf",
+      "contentHash": "m4nwfeQVBUEMqFes8QCpK8lYP_bF0GXmWzqjOTXMHZs",
+      "upstreamUpdated": "2026-08-13T14:34:35.340Z",
+      "rules": 15,
+      "approximated": 0,
+      "dropped": {}
+    },
+    "apple-cdn-domainset": {
+      "source": "domainset/apple_cdn.conf",
+      "contentHash": "pUX5ClynVnEYl9Bkv3QcQDuTNLL3yukqR1X-QKxNNpg",
+      "upstreamUpdated": "2026-08-26T17:57:49.006Z",
+      "rules": 160,
+      "approximated": 159,
+      "dropped": {}
+    },
+    "apple-services": {
+      "source": "non_ip/apple_services.conf",
+      "contentHash": "D1NZxJ0P8otGR-pmWun3-MR6MHrTyyNdXdnytT_bmcg",
+      "upstreamUpdated": "2026-08-05T12:33:04.405Z",
+      "rules": 18,
+      "approximated": 0,
+      "dropped": {
+        "process-name": 8
+      }
+    },
+    "apple-cn": {
+      "source": "non_ip/apple_cn.conf",
+      "contentHash": "X8kc8kYRsrmysFRnzFpY5Aw2PsmE-xu8_9PdEFl0RFk",
+      "upstreamUpdated": "2026-08-05T12:33:04.400Z",
+      "rules": 10,
+      "approximated": 0,
+      "dropped": {}
+    },
+    "microsoft-cdn": {
+      "source": "non_ip/microsoft_cdn.conf",
+      "contentHash": "2Y8AoGQYN7r-o7fPEQte6ir_rx66vg2Uh1F2NwsWu_0",
+      "upstreamUpdated": "2026-08-28T01:29:16.585Z",
+      "rules": 52,
+      "approximated": 0,
+      "dropped": {
+        "url-regex": 2
+      }
+    },
+    "microsoft": {
+      "source": "non_ip/microsoft.conf",
+      "contentHash": "TlRZX95xyWI49Tb2ygU_MHYt2KnmC63VK2RX27P-yFw",
+      "upstreamUpdated": "2026-08-05T12:33:04.409Z",
+      "rules": 84,
+      "approximated": 0,
+      "dropped": {}
+    },
+    "neteasemusic": {
+      "source": "non_ip/neteasemusic.conf",
+      "contentHash": "ENn2cYM3OsxN_KwEr498kSw6AxuL-ibfKIShjBVdSUo",
+      "upstreamUpdated": "2026-08-05T12:33:04.421Z",
+      "rules": 3,
+      "approximated": 0,
+      "dropped": {
+        "user-agent": 2
+      }
+    },
+    "ip-neteasemusic": {
+      "source": "ip/neteasemusic.conf",
+      "contentHash": "wrKkG7f_hRUDQTxJO-TnebGpuxm3eoV9-MPlcdmwuTc",
+      "upstreamUpdated": "2026-08-05T12:33:04.397Z",
+      "rules": 18,
+      "approximated": 0,
+      "dropped": {}
+    },
+    "download-domainset": {
+      "source": "domainset/download.conf",
+      "contentHash": "ZVwNIx576WKY3c7tNL_qw-m2UFWuqSYSzWWhDE5tfco",
+      "upstreamUpdated": "2026-08-29T18:28:31.014Z",
+      "rules": 1967,
+      "approximated": 535,
+      "dropped": {}
+    },
+    "download": {
+      "source": "non_ip/download.conf",
+      "contentHash": "Yl6ZX6RG9FLOB_BLmHsFfEIamzPZ6LaflomfWznqQkY",
+      "upstreamUpdated": "2026-08-05T12:33:04.408Z",
+      "rules": 10,
+      "approximated": 0,
+      "dropped": {
+        "url-regex": 1
+      }
+    },
+    "lan": {
+      "source": "non_ip/lan.conf",
+      "contentHash": "wwd8KNRkyOkoZafVWZ8ujSXwLXKWA1-mfAtFs-3Jnkk",
+      "upstreamUpdated": "2026-08-05T12:33:04.538Z",
+      "rules": 50,
+      "approximated": 0,
+      "dropped": {}
+    },
+    "domestic": {
+      "source": "non_ip/domestic.conf",
+      "contentHash": "T_za7NN7pWO6RMdaJduvv6ssx377hsJAKf_gBeOSZrA",
+      "upstreamUpdated": "2026-08-08T06:31:42.029Z",
+      "rules": 866,
+      "approximated": 0,
+      "dropped": {
+        "user-agent": 3
+      }
+    },
+    "direct": {
+      "source": "non_ip/direct.conf",
+      "contentHash": "cHGPw28cUlHeJPPagi8Xu_fFZ8zOSPij9yiiZy5La3M",
+      "upstreamUpdated": "2026-08-29T18:37:13.404Z",
+      "rules": 183,
+      "approximated": 0,
+      "dropped": {
+        "user-agent": 1,
+        "process-name": 36
+      }
+    },
+    "global": {
+      "source": "non_ip/global.conf",
+      "contentHash": "ZN9fRXPGIwvFkg6hO1C-QenBwugCQ5dZM7Dgcqm39aQ",
+      "upstreamUpdated": "2026-08-05T12:33:04.218Z",
+      "rules": 1269,
+      "approximated": 0,
+      "dropped": {
+        "user-agent": 1
+      }
+    },
+    "ip-reject": {
+      "source": "ip/reject.conf",
+      "contentHash": "IENPmy-EG_ac8V7MO4v_BhEI8HN9ufet5vmQGIRjs0M",
+      "upstreamUpdated": "2026-08-24T05:54:41.161Z",
+      "rules": 780,
+      "approximated": 0,
+      "dropped": {}
+    },
+    "ip-domestic": {
+      "source": "ip/domestic.conf",
+      "contentHash": "MtVGNUmHRxFWknlTrfbeedjKU1N8e17g1u26PWcFVAU",
+      "upstreamUpdated": "2026-08-05T12:33:04.393Z",
+      "rules": 3,
+      "approximated": 0,
+      "dropped": {}
+    }
+  }
+}

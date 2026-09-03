@@ -6,9 +6,9 @@ Complete routing profiles built from public ruleset projects.
 
 ## Available profiles
 
-| Ruleset | Mihomo | Shadowrocket | Stash |
-| --- | --- | --- | --- |
-| [Sukka Ruleset](https://github.com/SukkaW/Surge) | [sukka.yaml](./mihomo/sukka.yaml) | [sukka.conf](./shadowrocket/sukka.conf) | [sukka.yaml](./stash/sukka.yaml) |
+| Ruleset | Mihomo | Shadowrocket | Stash | Quantumult X |
+| --- | --- | --- | --- | --- |
+| [Sukka Ruleset](https://github.com/SukkaW/Surge) | [sukka.yaml](./mihomo/sukka.yaml) | [sukka.conf](./shadowrocket/sukka.conf) | [sukka.yaml](./stash/sukka.yaml) | [sukka.conf](./qx/sukka.conf) |
 
 > [!IMPORTANT]
 > These are unofficial community profiles. Please report profile-specific issues
@@ -63,6 +63,26 @@ shortcut to force TCP, which most proxy protocols handle more efficiently.
 `REJECT-NO-DROP` is not available in Stash; the upstream reject-no-drop ruleset
 is mapped to `REJECT` instead.
 
+### Quantumult X
+
+Requires Quantumult X 1.8.0 or newer; the profile uses the built-in
+`FILTER_LAN` / `FILTER_REGION` snippets and was verified against the v1.8.0
+(build 943) TestFlight sample configuration.
+
+1. Add your nodes or subscription in Quantumult X.
+2. Download and import [qx/sukka.conf](./qx/sukka.conf) (Settings →
+   Configuration → Download), then start the tunnel.
+3. The built-in `PROXY` policy follows the node selected on the home screen;
+   select `PROXY` or `DIRECT` for each category policy group.
+
+Quantumult X cannot parse Surge syntax, so the rule lists are pre-converted
+and committed under [qx/Rules/](./qx/Rules/). A scheduled workflow rebuilds
+them hourly against upstream; the client refreshes the lists daily. The
+converter reports what it drops per file (upstream `URL-REGEX`,
+`USER-AGENT`, `PROCESS-NAME`, and logic rules have no Quantumult X filter
+equivalent). If `raw.githubusercontent.com` is unreachable from your network,
+switch the list URLs to the jsDelivr mirror documented in the profile header.
+
 ## Sukka profile
 
 All profiles fetch rule files from `ruleset.skk.moe` and preserve Sukka's
@@ -90,8 +110,10 @@ may affect account sync, dictionary updates, and feedback features. Sukka
 recommends dedicated content-blocking software instead of large reject lists on
 mobile platforms.
 
-Shadowrocket and Stash are not officially supported Sukka Ruleset targets. Some
-desktop-only process rules may have no effect on iOS.
+Shadowrocket, Stash, and Quantumult X are not officially supported Sukka
+Ruleset targets. Some desktop-only process rules may have no effect on iOS.
+The Quantumult X profile also omits the `reject_extra` and `reject_phishing`
+domain sets (~213k lines) to stay within Quantumult X performance limits.
 
 ## Repository layout
 
@@ -103,6 +125,14 @@ desktop-only process rules may have no effect on iOS.
 │   └── sukka.conf
 ├── stash/
 │   └── sukka.yaml
+├── qx/
+│   ├── sukka.conf
+│   └── Rules/            # generated, see .github/workflows/sukka-qx.yml
+├── tools/
+│   └── sukka-qx.mjs      # Sukka Ruleset -> Quantumult X converter
+├── .github/
+│   └── workflows/
+│       └── sukka-qx.yml
 ├── .gitignore
 ├── LICENSE
 ├── NOTICE

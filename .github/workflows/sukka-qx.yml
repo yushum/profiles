@@ -1,0 +1,48 @@
+# SPDX-License-Identifier: AGPL-3.0-only
+#
+# Rebuild the Quantumult X rule lists in qx/Rules/ from Sukka Ruleset.
+# GitHub Actions cannot observe pushes to another repository, so this workflow
+# polls upstream hourly and compares the HEAD commit; tools/sukka-qx.mjs then
+# skips untouched rule files via their upstream $content-hash-v1$.
+
+name: Build Quantumult X rules
+
+on:
+  schedule:
+    # Hourly, offset from the top of the hour to reduce runner congestion.
+    - cron: "23 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sukka-qx
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Sync Quantumult X rules from Sukka Ruleset
+        run: node tools/sukka-qx.mjs
+
+      - name: Commit and push
+        run: |
+          if [ -z "$(git status --porcelain -- qx/)" ]; then
+            echo "No rule changes; nothing to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add qx/
+          UPSTREAM_SHA="$(jq -r .upstream.headSha qx/Rules/manifest.json)"
+          git commit -m "chore(qx): sync Sukka Ruleset ${UPSTREAM_SHA:0:12}"
+          git push

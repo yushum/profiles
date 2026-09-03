@@ -12,3 +12,6 @@ rule_providers/
 *.private.yaml
 *.private.yml
 *.private.conf
+
+# Local reference sample of Quantumult X TF 1.8.0 (build 943), not for distribution
+/sample.conf
