@@ -1,7 +1,7 @@
 {
   "upstream": {
     "repo": "https://github.com/SukkaW/Surge",
-    "headSha": "7b79e9e59f8614ec9e9476651beefe1d68c2f1ca"
+    "headSha": "71dec369a759ad696f3b451cfc720e354cc2dd06"
   },
   "files": {
     "reject-drop": {
