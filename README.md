@@ -75,6 +75,10 @@ Requires Quantumult X 1.8.0 or newer; the profile uses the built-in
 3. The built-in `PROXY` policy follows the node selected on the home screen;
    select `PROXY` or `DIRECT` for each category policy group.
 
+4. Node GEO information on the home screen uses [IP.SB](https://ip.sb/)
+   via a bundled parser script ([qx/Scripts/ip-sb.js](./qx/Scripts/ip-sb.js)).
+   To disable it, set `geo_location_checker = disabled` under `[general]`.
+
 Quantumult X cannot parse Surge syntax, so the rule lists are pre-converted
 and committed under [qx/Rules/](./qx/Rules/). A scheduled workflow rebuilds
 them hourly against upstream; the client refreshes the lists daily. The
@@ -127,6 +131,7 @@ domain sets (~213k lines) to stay within Quantumult X performance limits.
 │   └── sukka.yaml
 ├── qx/
 │   ├── sukka.conf
+│   ├── Scripts/          # UI scripts (IP information checker, etc.)
 │   └── Rules/            # generated, see .github/workflows/sukka-qx.yml
 ├── tools/
 │   └── sukka-qx.mjs      # Sukka Ruleset -> Quantumult X converter
