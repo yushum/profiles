@@ -75,9 +75,10 @@ Requires Quantumult X 1.8.0 or newer; the profile uses the built-in
 3. The built-in `PROXY` policy follows the node selected on the home screen;
    select `PROXY` or `DIRECT` for each category policy group.
 
-4. Node GEO information on the home screen uses [IP.SB](https://ip.sb/)
-   via a bundled parser script ([qx/Scripts/ip-sb.js](./qx/Scripts/ip-sb.js)).
-   To disable it, set `geo_location_checker = disabled` under `[general]`.
+4. Node GEO information on the home screen uses [ip-api.com](http://ip-api.com/)
+   with Chinese localization via a bundled parser script
+   ([qx/Scripts/ip-api.js](./qx/Scripts/ip-api.js)). To disable it, set
+   `geo_location_checker = disabled` under `[general]`.
 
 Quantumult X cannot parse Surge syntax, so the rule lists are pre-converted
 and committed under [qx/Rules/](./qx/Rules/). A scheduled workflow rebuilds
