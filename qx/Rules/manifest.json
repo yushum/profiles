@@ -1,7 +1,7 @@
 {
   "upstream": {
     "repo": "https://github.com/SukkaW/Surge",
-    "headSha": "81632ebcfaa6a2469721d63e7be16639db319f63"
+    "headSha": "3fcf579ccb0c419f661d96b863fa58b5cea693d1"
   },
   "files": {
     "reject-drop": {
@@ -14,10 +14,10 @@
     },
     "reject-domainset": {
       "source": "domainset/reject.conf",
-      "contentHash": "-xD4s0HxjlnJwhdADlClwY5f1pT5llDoXYitJ19Wr8o",
-      "upstreamUpdated": "2026-09-05T11:56:50.648Z",
-      "rules": 135818,
-      "approximated": 134663,
+      "contentHash": "fG3vPgAS2_uTJE8CijUkvb528past7Z8xN7SK9y6bI4",
+      "upstreamUpdated": "2026-09-07T15:50:12.303Z",
+      "rules": 134261,
+      "approximated": 133106,
       "dropped": {}
     },
     "reject": {
@@ -53,9 +53,9 @@
     },
     "speedtest": {
       "source": "domainset/speedtest.conf",
-      "contentHash": "Z6gsB_xZawwab-wCCoP37YWH7qi5mp2h4VvLgjbLEWA",
-      "upstreamUpdated": "2026-09-04T19:33:54.599Z",
-      "rules": 3366,
+      "contentHash": "NEl5XQI95Lj0hTcEv2Qtu1fcc65gblh3qCpHnY2Ax2Y",
+      "upstreamUpdated": "2026-09-06T19:09:11.025Z",
+      "rules": 3369,
       "approximated": 112,
       "dropped": {}
     },
@@ -96,8 +96,8 @@
     },
     "ai": {
       "source": "non_ip/ai.conf",
-      "contentHash": "l2ICeXyMY-UpWKEQ39CTDIyO5vkAewbHS5os3IHXpjE",
-      "upstreamUpdated": "2026-08-07T06:33:36.625Z",
+      "contentHash": "UbkNDCOcUcEZHDQYCCvK4lj3xKqeSD1W9RqYBdaK5ZU",
+      "upstreamUpdated": "2026-09-07T15:50:12.497Z",
       "rules": 50,
       "approximated": 0,
       "dropped": {
