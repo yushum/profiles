@@ -63,7 +63,6 @@ proxy-providers:
   "Subscription":
     # Replace the next URL locally. Subscription URLs are private credentials.
     url: "https://example.com/REPLACE_WITH_YOUR_SUBSCRIPTION_URL"
-    path: ./providers/my-subscription.yaml
     interval: 21600
 
 proxy-groups:
@@ -157,224 +156,192 @@ rule-providers:
     format: text
     interval: 43200
     url: https://ruleset.skk.moe/Clash/non_ip/reject-drop.txt
-    path: ./rule_providers/sukka/reject_non_ip_drop.txt
 
   reject_domainset:
     behavior: domain
     format: text
     interval: 43200
     url: https://ruleset.skk.moe/Clash/domainset/reject.txt
-    path: ./rule_providers/sukka/reject_domainset.txt
 
   reject_non_ip:
     behavior: classical
     format: text
     interval: 43200
     url: https://ruleset.skk.moe/Clash/non_ip/reject.txt
-    path: ./rule_providers/sukka/reject_non_ip.txt
 
   reject_non_ip_no_drop:
     behavior: classical
     format: text
     interval: 43200
     url: https://ruleset.skk.moe/Clash/non_ip/reject-no-drop.txt
-    path: ./rule_providers/sukka/reject_non_ip_no_drop.txt
 
   reject_ip:
     behavior: classical
     format: text
     interval: 43200
     url: https://ruleset.skk.moe/Clash/ip/reject.txt
-    path: ./rule_providers/sukka/reject_ip.txt
 
   sogouinput:
     behavior: classical
     format: text
     interval: 43200
     url: https://ruleset.skk.moe/Clash/non_ip/sogouinput.txt
-    path: ./rule_providers/sukka/sogouinput.txt
 
   speedtest:
     behavior: domain
     format: text
     interval: 43200
     url: https://ruleset.skk.moe/Clash/domainset/speedtest.txt
-    path: ./rule_providers/sukka/speedtest.txt
 
   cdn_domainset:
     behavior: domain
     format: text
     interval: 43200
     url: https://ruleset.skk.moe/Clash/domainset/cdn.txt
-    path: ./rule_providers/sukka/cdn_domainset.txt
 
   cdn_non_ip:
     behavior: classical
     format: text
     interval: 43200
     url: https://ruleset.skk.moe/Clash/non_ip/cdn.txt
-    path: ./rule_providers/sukka/cdn_non_ip.txt
 
   stream_non_ip:
     behavior: classical
     format: text
     interval: 43200
     url: https://ruleset.skk.moe/Clash/non_ip/stream.txt
-    path: ./rule_providers/sukka/stream_non_ip.txt
 
   stream_ip:
     behavior: classical
     format: text
     interval: 43200
     url: https://ruleset.skk.moe/Clash/ip/stream.txt
-    path: ./rule_providers/sukka/stream_ip.txt
 
   ai_non_ip:
     behavior: classical
     format: text
     interval: 43200
     url: https://ruleset.skk.moe/Clash/non_ip/ai.txt
-    path: ./rule_providers/sukka/ai_non_ip.txt
 
   apple_intelligence_non_ip:
     behavior: classical
     format: text
     interval: 43200
     url: https://ruleset.skk.moe/Clash/non_ip/apple_intelligence.txt
-    path: ./rule_providers/sukka/apple_intelligence_non_ip.txt
 
   ai_ip:
     behavior: classical
     format: text
     interval: 43200
     url: https://ruleset.skk.moe/Clash/ip/ai.txt
-    path: ./rule_providers/sukka/ai_ip.txt
 
   telegram_non_ip:
     behavior: classical
     format: text
     interval: 43200
     url: https://ruleset.skk.moe/Clash/non_ip/telegram.txt
-    path: ./rule_providers/sukka/telegram_non_ip.txt
 
   telegram_ip:
     behavior: classical
     format: text
     interval: 43200
     url: https://ruleset.skk.moe/Clash/ip/telegram.txt
-    path: ./rule_providers/sukka/telegram_ip.txt
 
   apple_cdn:
     behavior: domain
     format: text
     interval: 43200
     url: https://ruleset.skk.moe/Clash/domainset/apple_cdn.txt
-    path: ./rule_providers/sukka/apple_cdn.txt
 
   apple_services:
     behavior: classical
     format: text
     interval: 43200
     url: https://ruleset.skk.moe/Clash/non_ip/apple_services.txt
-    path: ./rule_providers/sukka/apple_services.txt
 
   apple_cn_non_ip:
     behavior: classical
     format: text
     interval: 43200
     url: https://ruleset.skk.moe/Clash/non_ip/apple_cn.txt
-    path: ./rule_providers/sukka/apple_cn_non_ip.txt
 
   microsoft_cdn_non_ip:
     behavior: classical
     format: text
     interval: 43200
     url: https://ruleset.skk.moe/Clash/non_ip/microsoft_cdn.txt
-    path: ./rule_providers/sukka/microsoft_cdn_non_ip.txt
 
   microsoft_non_ip:
     behavior: classical
     format: text
     interval: 43200
     url: https://ruleset.skk.moe/Clash/non_ip/microsoft.txt
-    path: ./rule_providers/sukka/microsoft_non_ip.txt
 
   neteasemusic_non_ip:
     behavior: classical
     format: text
     interval: 43200
     url: https://ruleset.skk.moe/Clash/non_ip/neteasemusic.txt
-    path: ./rule_providers/sukka/neteasemusic_non_ip.txt
 
   neteasemusic_ip:
     behavior: classical
     format: text
     interval: 43200
     url: https://ruleset.skk.moe/Clash/ip/neteasemusic.txt
-    path: ./rule_providers/sukka/neteasemusic_ip.txt
 
   download_domainset:
     behavior: domain
     format: text
     interval: 43200
     url: https://ruleset.skk.moe/Clash/domainset/download.txt
-    path: ./rule_providers/sukka/download_domainset.txt
 
   download_non_ip:
     behavior: classical
     format: text
     interval: 43200
     url: https://ruleset.skk.moe/Clash/non_ip/download.txt
-    path: ./rule_providers/sukka/download_non_ip.txt
 
   lan_non_ip:
     behavior: classical
     format: text
     interval: 43200
     url: https://ruleset.skk.moe/Clash/non_ip/lan.txt
-    path: ./rule_providers/sukka/lan_non_ip.txt
 
   lan_ip:
     behavior: classical
     format: text
     interval: 43200
     url: https://ruleset.skk.moe/Clash/ip/lan.txt
-    path: ./rule_providers/sukka/lan_ip.txt
 
   domestic_non_ip:
     behavior: classical
     format: text
     interval: 43200
     url: https://ruleset.skk.moe/Clash/non_ip/domestic.txt
-    path: ./rule_providers/sukka/domestic_non_ip.txt
 
   direct_non_ip:
     behavior: classical
     format: text
     interval: 43200
     url: https://ruleset.skk.moe/Clash/non_ip/direct.txt
-    path: ./rule_providers/sukka/direct_non_ip.txt
 
   global_non_ip:
     behavior: classical
     format: text
     interval: 43200
     url: https://ruleset.skk.moe/Clash/non_ip/global.txt
-    path: ./rule_providers/sukka/global_non_ip.txt
 
   domestic_ip:
     behavior: classical
     format: text
     interval: 43200
     url: https://ruleset.skk.moe/Clash/ip/domestic.txt
-    path: ./rule_providers/sukka/domestic_ip.txt
 
   china_ip:
     behavior: ipcidr
     format: text
     interval: 43200
     url: https://ruleset.skk.moe/Clash/ip/china_ip.txt
-    path: ./rule_providers/sukka/china_ip.txt
 
 rules:
   # Disable QUIC to force TCP which proxies handle more efficiently.
