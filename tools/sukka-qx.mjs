@@ -21,17 +21,15 @@
 //   IP-CIDR6        -> ip6-cidr   (same)
 //   IP-ASN          -> ip-asn
 //   GEOIP           -> geoip
-//   domainset lines -> host-suffix. A leading dot in a Surge DOMAIN-SET means
-//                      "subdomains only"; Quantumult X cannot express that, so
-//                      such lines are approximated as host-suffix (which also
-//                      matches the bare domain) and reported separately.
+//   domainset lines -> host (exact hostname), or host-suffix for a leading dot
+//                      (the domain itself and all subdomains).
 //   URL-REGEX / PROCESS-NAME / USER-AGENT / AND / OR / NOT and anything unknown
 //                   -> dropped and reported
 //
 // Output lines carry the target policy as the third field; the [filter_remote]
 // force-policy param in qx/sukka.conf overrides it (both are the same value).
-// Files are only rewritten when the upstream
-// $content-hash-v1$ changes, so untouched runs produce an empty git diff.
+// Files are only rewritten when the upstream $content-hash-v1$ or converter
+// version changes, so untouched runs produce an empty git diff.
 
 import { execFile } from 'node:child_process';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
@@ -45,6 +43,8 @@ const RULES_BASE = 'https://ruleset.skk.moe/List/';
 const OUT_DIR = path.resolve('qx', 'Rules');
 const MANIFEST_PATH = path.join(OUT_DIR, 'manifest.json');
 const FORCE = process.argv.includes('--force');
+// Bump when conversion semantics change so cached lists are rebuilt too.
+const CONVERTER_VERSION = 2;
 
 // Quantumult X cannot keep up with Sukka's full reject domain set (~363k lines
 // across reject/reject_extra/reject_phishing), so the two extras are not
@@ -167,14 +167,13 @@ function convertSurgeLine(line, stats) {
 }
 
 function convertDomainSetLine(line, stats) {
-  const suffixOnly = line.startsWith('.');
-  const domain = suffixOnly ? line.slice(1) : line;
+  const suffix = line.startsWith('.');
+  const domain = suffix ? line.slice(1) : line;
   if (!isDomain(domain)) {
     stats.dropped['invalid-domain'] = (stats.dropped['invalid-domain'] ?? 0) + 1;
     return null;
   }
-  if (suffixOnly) stats.approximated += 1;
-  return `host-suffix,${domain}`;
+  return `${suffix ? 'host-suffix' : 'host'},${domain}`;
 }
 
 function extract(text, regex) {
@@ -204,14 +203,17 @@ async function getHeadSha() {
 
 function parseList(source, text) {
   const upstreamUpdated = extract(text, /^#\s*Last Updated:\s*(.+)$/m);
-  const contentHash = extract(text, /\$content-hash-v1\$:(.+?)\$/);
-  const stats = { dropped: {}, approximated: 0 };
+  const contentHash = extract(text, /^#\s*\$content-hash-v1\$:([A-Za-z0-9_-]{43})\$\s*$/m);
+  if (!contentHash || !/(?:^|\n)#{2,} EOF #{2,}\s*$/.test(text)) {
+    throw new Error(`${source.src}: missing upstream hash or EOF marker; refusing to replace rules`);
+  }
+  const stats = { dropped: {} };
   const seen = new Set();
   const lines = [];
 
   for (const raw of text.split('\n')) {
     const line = raw.trim();
-    if (line === '' || line.startsWith('#') || line.startsWith(';')) continue;
+    if (line === '' || line.startsWith('#') || line.startsWith(';') || line.startsWith('//')) continue;
     // Strip upstream watermark / canary domain.
     if (CANARY_RE.test(line)) continue;
     const converted =
@@ -221,6 +223,9 @@ function parseList(source, text) {
     lines.push(`${converted},${source.policy}`);
   }
 
+  if (lines.length === 0 || Object.keys(stats.dropped).some((reason) => reason.startsWith('invalid'))) {
+    throw new Error(`${source.src}: empty or invalid rules; refusing to replace rules`);
+  }
   return { lines, stats, contentHash, upstreamUpdated };
 }
 
@@ -235,30 +240,35 @@ async function main() {
     // first run
   }
 
-  if (!FORCE && manifest.upstream?.headSha === headSha) {
+  const rebuild = FORCE || manifest.converterVersion !== CONVERTER_VERSION;
+  if (!rebuild && manifest.upstream?.headSha === headSha) {
     console.log(`upstream unchanged at ${headSha.slice(0, 12)}, nothing to do`);
     return;
   }
 
-  await mkdir(OUT_DIR, { recursive: true });
-
-  const totals = { dropped: 0, approximated: 0, rewritten: 0, unchanged: 0 };
-  const nextManifest = { upstream: { repo: UPSTREAM_REPO, headSha }, files: {} };
+  const totals = { dropped: 0, rewritten: 0, unchanged: 0 };
+  const nextManifest = { converterVersion: CONVERTER_VERSION, upstream: { repo: UPSTREAM_REPO, headSha }, files: {} };
+  const pending = [];
 
   for (const source of SOURCES) {
     const text = await fetchText(`${RULES_BASE}${source.src}`);
     const parsed = parseList(source, text);
     const previous = manifest.files?.[source.name];
 
-    if (!FORCE && previous && previous.contentHash === parsed.contentHash) {
+    if (!rebuild && previous && previous.contentHash === parsed.contentHash) {
       nextManifest.files[source.name] = previous;
       totals.unchanged += 1;
       continue;
     }
 
+    pending.push({ source, parsed });
+  }
+
+  // Validate every download before touching any existing list or the manifest.
+  await mkdir(OUT_DIR, { recursive: true });
+  for (const { source, parsed } of pending) {
     const droppedCount = Object.values(parsed.stats.dropped).reduce((sum, count) => sum + count, 0);
     totals.dropped += droppedCount;
-    totals.approximated += parsed.stats.approximated;
     totals.rewritten += 1;
 
     const droppedText =
@@ -273,7 +283,7 @@ async function main() {
       '# Generated by tools/sukka-qx.mjs — community adaptation, not an official SukkaW/Surge deliverable.',
       '# License: AGPL-3.0 — https://github.com/SukkaW/Surge',
       '# Quantumult X filter format. Each line carries the policy assigned by [filter_remote] in qx/sukka.conf; force-policy overrides it.',
-      `# Rules: ${parsed.lines.length} emitted, ${parsed.stats.approximated} approximated from dot-prefixed DOMAIN-SET lines, dropped: ${droppedText}`,
+      `# Rules: ${parsed.lines.length} emitted, dropped: ${droppedText}`,
     ];
 
     await writeFile(path.join(OUT_DIR, `${source.name}.list`), [...header, ...parsed.lines, ''].join('\n'));
@@ -283,13 +293,11 @@ async function main() {
       contentHash: parsed.contentHash,
       upstreamUpdated: parsed.upstreamUpdated,
       rules: parsed.lines.length,
-      approximated: parsed.stats.approximated,
       dropped: parsed.stats.dropped,
     };
 
     console.log(
-      `${source.name.padEnd(22)} ${String(parsed.lines.length).padStart(6)} rules, ${droppedCount} dropped` +
-        (parsed.stats.approximated > 0 ? `, ${parsed.stats.approximated} approximated` : ''),
+      `${source.name.padEnd(22)} ${String(parsed.lines.length).padStart(6)} rules, ${droppedCount} dropped`,
     );
   }
 
@@ -298,7 +306,7 @@ async function main() {
   const totalRules = Object.values(nextManifest.files).reduce((sum, file) => sum + file.rules, 0);
   console.log(
     `\n${totals.rewritten} file(s) rewritten, ${totals.unchanged} unchanged; ` +
-      `${totalRules} rules total, ${totals.dropped} dropped, ${totals.approximated} approximated`,
+      `${totalRules} rules total, ${totals.dropped} dropped`,
   );
 }
 

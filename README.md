@@ -85,9 +85,13 @@ Requires Quantumult X 1.8.0 or newer; the profile uses the built-in
 Quantumult X cannot parse Surge syntax, so the rule lists are pre-converted
 and committed under [qx/Rules/](./qx/Rules/). A scheduled workflow rebuilds
 them hourly against upstream; the client refreshes the lists daily. The
-converter reports what it drops per file (upstream `URL-REGEX`,
-`USER-AGENT`, `PROCESS-NAME`, and logic rules have no Quantumult X filter
-equivalent). If `raw.githubusercontent.com` is unreachable from your network,
+converter preserves exact and suffix domain matching and reports what it drops
+per file (upstream `URL-REGEX`, `USER-AGENT`, `PROCESS-NAME`, and logic rules have
+no Quantumult X filter equivalent). All downloads are validated before existing
+rules are replaced; missing upstream hash/EOF markers, empty output, or malformed
+supported rules abort the update. Run the offline regression check with
+`node --test tools/sukka-qx.test.mjs`.
+If `raw.githubusercontent.com` is unreachable from your network,
 switch the list URLs to the jsDelivr mirror documented in the profile header.
 
 ## Sukka profile
@@ -137,7 +141,8 @@ domain sets (~213k lines) to stay within Quantumult X performance limits.
 │   ├── Scripts/          # UI scripts (IP information checker, etc.)
 │   └── Rules/            # generated, see .github/workflows/sukka-qx.yml
 ├── tools/
-│   └── sukka-qx.mjs      # Sukka Ruleset -> Quantumult X converter
+│   ├── sukka-qx.mjs      # Sukka Ruleset -> Quantumult X converter
+│   └── sukka-qx.test.mjs # offline regression check
 ├── .github/
 │   └── workflows/
 │       └── sukka-qx.yml

@@ -31,6 +31,9 @@ jobs:
         with:
           node-version: 22
 
+      - name: Test Quantumult X converter
+        run: node --test tools/sukka-qx.test.mjs
+
       - name: Sync Quantumult X rules from Sukka Ruleset
         run: node tools/sukka-qx.mjs
 
