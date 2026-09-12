@@ -2,7 +2,7 @@
   "converterVersion": 2,
   "upstream": {
     "repo": "https://github.com/SukkaW/Surge",
-    "headSha": "024fd5d8d6d3c8a534c0536c57d4803257c4a023"
+    "headSha": "01f4ee6d57d2db0e06cb7355ea4582091524e266"
   },
   "files": {
     "reject-drop": {
@@ -39,20 +39,6 @@
         "user-agent": 2,
         "process-name": 3
       }
-    },
-    "speedtest": {
-      "source": "domainset/speedtest.conf",
-      "contentHash": "Jpkv_hFFiESlF56aQXEx78GvhiFG2aCuAUQBv51nPHs",
-      "upstreamUpdated": "2026-09-09T19:45:08.685Z",
-      "rules": 3374,
-      "dropped": {}
-    },
-    "cdn-domainset": {
-      "source": "domainset/cdn.conf",
-      "contentHash": "HtGpnABqVHI46w858alL1A1ExP4XZEH_oBYqhmAPrL8",
-      "upstreamUpdated": "2026-09-05T11:56:51.377Z",
-      "rules": 4653,
-      "dropped": {}
     },
     "cdn": {
       "source": "non_ip/cdn.conf",
@@ -237,9 +223,23 @@
     },
     "reject-domainset": {
       "source": "domainset/reject.conf",
-      "contentHash": "nYbl4ZKh4L-xmt8hHBq5CsAsy2dZHUvonJVLfC3Kwd8",
-      "upstreamUpdated": "2026-09-10T11:04:13.751Z",
-      "rules": 134691,
+      "contentHash": "VCKR_OJMyN89st88otlfGxnpHPGHL6ONMwF7lAtOyzQ",
+      "upstreamUpdated": "2026-09-12T13:55:43.882Z",
+      "rules": 135032,
+      "dropped": {}
+    },
+    "speedtest": {
+      "source": "domainset/speedtest.conf",
+      "contentHash": "-ifOZAh_scEkyJZyO94dPxfcAXpUp53UNQEQmFEloco",
+      "upstreamUpdated": "2026-09-11T19:40:51.422Z",
+      "rules": 3380,
+      "dropped": {}
+    },
+    "cdn-domainset": {
+      "source": "domainset/cdn.conf",
+      "contentHash": "MrSHFTsGrnjrHHIe09pUGA4aDQAmGOmCRZ2h4Ept1kc",
+      "upstreamUpdated": "2026-09-12T13:55:45.542Z",
+      "rules": 4654,
       "dropped": {}
     }
   }
