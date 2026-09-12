@@ -2,7 +2,7 @@
   "converterVersion": 2,
   "upstream": {
     "repo": "https://github.com/SukkaW/Surge",
-    "headSha": "01f4ee6d57d2db0e06cb7355ea4582091524e266"
+    "headSha": "ce53726272f4545ae48d7be2a5eed1699232e0c5"
   },
   "files": {
     "reject-drop": {
@@ -156,13 +156,6 @@
       "rules": 17,
       "dropped": {}
     },
-    "download-domainset": {
-      "source": "domainset/download.conf",
-      "contentHash": "ZVwNIx576WKY3c7tNL_qw-m2UFWuqSYSzWWhDE5tfco",
-      "upstreamUpdated": "2026-08-29T18:28:31.014Z",
-      "rules": 1966,
-      "dropped": {}
-    },
     "download": {
       "source": "non_ip/download.conf",
       "contentHash": "Yl6ZX6RG9FLOB_BLmHsFfEIamzPZ6LaflomfWznqQkY",
@@ -198,15 +191,6 @@
         "process-name": 36
       }
     },
-    "global": {
-      "source": "non_ip/global.conf",
-      "contentHash": "ZN9fRXPGIwvFkg6hO1C-QenBwugCQ5dZM7Dgcqm39aQ",
-      "upstreamUpdated": "2026-08-05T12:33:04.218Z",
-      "rules": 1268,
-      "dropped": {
-        "user-agent": 1
-      }
-    },
     "ip-reject": {
       "source": "ip/reject.conf",
       "contentHash": "IENPmy-EG_ac8V7MO4v_BhEI8HN9ufet5vmQGIRjs0M",
@@ -223,24 +207,40 @@
     },
     "reject-domainset": {
       "source": "domainset/reject.conf",
-      "contentHash": "VCKR_OJMyN89st88otlfGxnpHPGHL6ONMwF7lAtOyzQ",
-      "upstreamUpdated": "2026-09-12T13:55:43.882Z",
-      "rules": 135032,
+      "contentHash": "Ed8ioD4rieaiMaQOubGFVNKboQe-MMcfyDaDFGYDhss",
+      "upstreamUpdated": "2026-09-12T19:18:34.155Z",
+      "rules": 135081,
       "dropped": {}
     },
     "speedtest": {
       "source": "domainset/speedtest.conf",
-      "contentHash": "-ifOZAh_scEkyJZyO94dPxfcAXpUp53UNQEQmFEloco",
-      "upstreamUpdated": "2026-09-11T19:40:51.422Z",
-      "rules": 3380,
+      "contentHash": "cORjSBfGLdH1tsQczGeNsMxg8JfAgzMLXvC-b5j3A8Q",
+      "upstreamUpdated": "2026-09-12T18:18:09.278Z",
+      "rules": 3381,
       "dropped": {}
     },
     "cdn-domainset": {
       "source": "domainset/cdn.conf",
-      "contentHash": "MrSHFTsGrnjrHHIe09pUGA4aDQAmGOmCRZ2h4Ept1kc",
-      "upstreamUpdated": "2026-09-12T13:55:45.542Z",
-      "rules": 4654,
+      "contentHash": "ndYY74W0Ppmi1vA7DS7MBlv98lXlY_PZuc1oPYk0yuA",
+      "upstreamUpdated": "2026-09-12T18:18:09.839Z",
+      "rules": 4655,
       "dropped": {}
+    },
+    "download-domainset": {
+      "source": "domainset/download.conf",
+      "contentHash": "5ajCPRDq0-Vdl0Dsne98YuF9l3TJclQHrlboaHqUOjc",
+      "upstreamUpdated": "2026-09-12T18:18:09.839Z",
+      "rules": 1967,
+      "dropped": {}
+    },
+    "global": {
+      "source": "non_ip/global.conf",
+      "contentHash": "uq2srddtA_SpQFylp-v1hjO-_ugEdXkdlXEI5BzYBqY",
+      "upstreamUpdated": "2026-09-12T18:18:09.438Z",
+      "rules": 1269,
+      "dropped": {
+        "user-agent": 1
+      }
     }
   }
 }
