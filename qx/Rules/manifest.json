@@ -2,7 +2,7 @@
   "converterVersion": 2,
   "upstream": {
     "repo": "https://github.com/SukkaW/Surge",
-    "headSha": "4c5439b2d9d98c39a52691b8662c7e82bd1a2c40"
+    "headSha": "1fabd49dd726a0f06fda6dd165bf2a0bee5a6ebc"
   },
   "files": {
     "reject-drop": {
@@ -39,13 +39,6 @@
         "user-agent": 2,
         "process-name": 3
       }
-    },
-    "speedtest": {
-      "source": "domainset/speedtest.conf",
-      "contentHash": "FNbbt0stJdkL3A4KLB39JUSk6dXOw3Yg-IdX7DWfoNA",
-      "upstreamUpdated": "2026-09-13T19:26:57.071Z",
-      "rules": 3382,
-      "dropped": {}
     },
     "cdn-domainset": {
       "source": "domainset/cdn.conf",
@@ -237,9 +230,16 @@
     },
     "reject-domainset": {
       "source": "domainset/reject.conf",
-      "contentHash": "mPvV_aY-F2uH93ZVQ1vt9hhp4kVuI6TwtaiA0a-uyr4",
-      "upstreamUpdated": "2026-09-15T04:02:45.608Z",
-      "rules": 135469,
+      "contentHash": "-ncvLu3Gb3sX45s1n_C6No33_vxHQQe6vWYDd6SqhBA",
+      "upstreamUpdated": "2026-09-16T20:05:54.886Z",
+      "rules": 135504,
+      "dropped": {}
+    },
+    "speedtest": {
+      "source": "domainset/speedtest.conf",
+      "contentHash": "O7uJyN9wfOo5TBVPvkd_KLgdB45u3I6simaxXxoC86o",
+      "upstreamUpdated": "2026-09-16T20:05:54.888Z",
+      "rules": 3384,
       "dropped": {}
     }
   }
