@@ -2,7 +2,7 @@
   "converterVersion": 2,
   "upstream": {
     "repo": "https://github.com/SukkaW/Surge",
-    "headSha": "39bb7409ad642ae6227d1145754e7a87537ea028"
+    "headSha": "da90cbde1c20327c087d16b9ba323b68d3fdeaed"
   },
   "files": {
     "reject-drop": {
@@ -39,13 +39,6 @@
         "user-agent": 2,
         "process-name": 3
       }
-    },
-    "speedtest": {
-      "source": "domainset/speedtest.conf",
-      "contentHash": "f1exDkfYlHSXEaVbeEUiqhG-LkfPqhETGTaZTvmOdKI",
-      "upstreamUpdated": "2026-09-22T18:38:06.505Z",
-      "rules": 3396,
-      "dropped": {}
     },
     "cdn": {
       "source": "non_ip/cdn.conf",
@@ -214,6 +207,13 @@
         "user-agent": 1
       }
     },
+    "ip-reject": {
+      "source": "ip/reject.conf",
+      "contentHash": "_7Pr_azQnwoVfUIb98f9aJHmeE9gRINRWG8rtIeZL9E",
+      "upstreamUpdated": "2026-09-23T14:28:10.178Z",
+      "rules": 778,
+      "dropped": {}
+    },
     "ip-domestic": {
       "source": "ip/domestic.conf",
       "contentHash": "MtVGNUmHRxFWknlTrfbeedjKU1N8e17g1u26PWcFVAU",
@@ -223,23 +223,23 @@
     },
     "reject-domainset": {
       "source": "domainset/reject.conf",
-      "contentHash": "_IYJP1U8v0-piHu2KDRCYBDawMmcQAoDGSCBq8EOnKY",
-      "upstreamUpdated": "2026-09-23T14:28:10.178Z",
-      "rules": 135309,
+      "contentHash": "9H1zVe4iAR5GUCBmV1-Hz-c7WJAT4xzWwbTgjJ7ldoU",
+      "upstreamUpdated": "2026-09-26T15:10:49.262Z",
+      "rules": 135548,
+      "dropped": {}
+    },
+    "speedtest": {
+      "source": "domainset/speedtest.conf",
+      "contentHash": "3AzhrTUuuNKziw3mhV0e_MPFCKE3_snOl1aP-KFrHuA",
+      "upstreamUpdated": "2026-09-25T20:28:38.080Z",
+      "rules": 3401,
       "dropped": {}
     },
     "cdn-domainset": {
       "source": "domainset/cdn.conf",
-      "contentHash": "1Bqy3NZl2QCZ2B6FuI9sUiVLuXs9aHp2-7ksnI--2VE",
-      "upstreamUpdated": "2026-09-23T12:32:35.310Z",
-      "rules": 4674,
-      "dropped": {}
-    },
-    "ip-reject": {
-      "source": "ip/reject.conf",
-      "contentHash": "_7Pr_azQnwoVfUIb98f9aJHmeE9gRINRWG8rtIeZL9E",
-      "upstreamUpdated": "2026-09-23T14:28:10.178Z",
-      "rules": 778,
+      "contentHash": "DX1hkYiHOhaj9imeU4c0uSV3YJ3s_rPvSy2tZZhiFC8",
+      "upstreamUpdated": "2026-09-26T15:10:49.838Z",
+      "rules": 4675,
       "dropped": {}
     }
   }
