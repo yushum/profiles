@@ -2,7 +2,7 @@
   "converterVersion": 2,
   "upstream": {
     "repo": "https://github.com/SukkaW/Surge",
-    "headSha": "4ce04be3cc548c672e3350afd47ded7089ccb7ab"
+    "headSha": "219a9e0c77843bd0961c066257f0ee318d26a6e8"
   },
   "files": {
     "reject-drop": {
@@ -39,20 +39,6 @@
         "user-agent": 2,
         "process-name": 3
       }
-    },
-    "speedtest": {
-      "source": "domainset/speedtest.conf",
-      "contentHash": "iYoI2G5GHI8nVNiUFzA8f7YfDV8peuCflBzXr2fu0JU",
-      "upstreamUpdated": "2026-09-29T21:23:24.384Z",
-      "rules": 3405,
-      "dropped": {}
-    },
-    "cdn-domainset": {
-      "source": "domainset/cdn.conf",
-      "contentHash": "-HiRVvrLrvjL-Y98g-VRCmfysE4FEcos33zgraeQuIs",
-      "upstreamUpdated": "2026-09-30T06:20:11.061Z",
-      "rules": 4678,
-      "dropped": {}
     },
     "cdn": {
       "source": "non_ip/cdn.conf",
@@ -193,6 +179,15 @@
       "rules": 49,
       "dropped": {}
     },
+    "domestic": {
+      "source": "non_ip/domestic.conf",
+      "contentHash": "rWUXpmmZfqd-E48xeinjmUM2pBbxQLRUZDouiuMITlE",
+      "upstreamUpdated": "2026-09-30T11:33:00.392Z",
+      "rules": 868,
+      "dropped": {
+        "user-agent": 3
+      }
+    },
     "direct": {
       "source": "non_ip/direct.conf",
       "contentHash": "cHGPw28cUlHeJPPagi8Xu_fFZ8zOSPij9yiiZy5La3M",
@@ -201,6 +196,15 @@
       "dropped": {
         "user-agent": 1,
         "process-name": 36
+      }
+    },
+    "global": {
+      "source": "non_ip/global.conf",
+      "contentHash": "lSYbzIK22JC1o39jlbbC5F0Qm_lXNRMPakDx3JIKZ5o",
+      "upstreamUpdated": "2026-09-30T11:33:00.165Z",
+      "rules": 1270,
+      "dropped": {
+        "user-agent": 1
       }
     },
     "ip-reject": {
@@ -219,28 +223,24 @@
     },
     "reject-domainset": {
       "source": "domainset/reject.conf",
-      "contentHash": "frDagF7sBSXNpsvN6OKAtyYSWaqetOeklqntN-tbWRg",
-      "upstreamUpdated": "2026-09-30T11:11:16.839Z",
-      "rules": 134573,
+      "contentHash": "dfYHO37t5SCymJLwKOn9rPHWD9DxmCMsziZrfsrd7Eg",
+      "upstreamUpdated": "2026-10-01T14:48:45.821Z",
+      "rules": 134746,
       "dropped": {}
     },
-    "domestic": {
-      "source": "non_ip/domestic.conf",
-      "contentHash": "rWUXpmmZfqd-E48xeinjmUM2pBbxQLRUZDouiuMITlE",
-      "upstreamUpdated": "2026-09-30T11:33:00.392Z",
-      "rules": 868,
-      "dropped": {
-        "user-agent": 3
-      }
+    "speedtest": {
+      "source": "domainset/speedtest.conf",
+      "contentHash": "8u-EUcLFoXbpzVUchk6qdo3PNPLTLGtnIlb1PSSls9E",
+      "upstreamUpdated": "2026-09-30T21:24:55.765Z",
+      "rules": 3407,
+      "dropped": {}
     },
-    "global": {
-      "source": "non_ip/global.conf",
-      "contentHash": "lSYbzIK22JC1o39jlbbC5F0Qm_lXNRMPakDx3JIKZ5o",
-      "upstreamUpdated": "2026-09-30T11:33:00.165Z",
-      "rules": 1270,
-      "dropped": {
-        "user-agent": 1
-      }
+    "cdn-domainset": {
+      "source": "domainset/cdn.conf",
+      "contentHash": "7cnqRfB77U9nLupjyVpaVwHRY3fSitc_SQrZwGmeO7I",
+      "upstreamUpdated": "2026-10-01T14:48:46.522Z",
+      "rules": 4680,
+      "dropped": {}
     }
   }
 }
