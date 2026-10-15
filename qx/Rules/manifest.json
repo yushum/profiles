@@ -2,7 +2,7 @@
   "converterVersion": 2,
   "upstream": {
     "repo": "https://github.com/SukkaW/Surge",
-    "headSha": "0f17de068ae4301afbef0a14d819dc6d8d738062"
+    "headSha": "f588a7f03d5e8c34c26971080b59d719e1ed89fd"
   },
   "files": {
     "reject-drop": {
@@ -39,13 +39,6 @@
         "user-agent": 2,
         "process-name": 3
       }
-    },
-    "speedtest": {
-      "source": "domainset/speedtest.conf",
-      "contentHash": "BMT8LC8qwk_P5HpndVd5vuBDUbaRDATIj0Z8xkmjVMk",
-      "upstreamUpdated": "2026-10-12T23:36:47.350Z",
-      "rules": 3427,
-      "dropped": {}
     },
     "cdn": {
       "source": "non_ip/cdn.conf",
@@ -131,15 +124,6 @@
       "rules": 9,
       "dropped": {}
     },
-    "microsoft-cdn": {
-      "source": "non_ip/microsoft_cdn.conf",
-      "contentHash": "2Y8AoGQYN7r-o7fPEQte6ir_rx66vg2Uh1F2NwsWu_0",
-      "upstreamUpdated": "2026-08-28T01:29:16.585Z",
-      "rules": 51,
-      "dropped": {
-        "url-regex": 2
-      }
-    },
     "microsoft": {
       "source": "non_ip/microsoft.conf",
       "contentHash": "TlRZX95xyWI49Tb2ygU_MHYt2KnmC63VK2RX27P-yFw",
@@ -161,6 +145,13 @@
       "contentHash": "wrKkG7f_hRUDQTxJO-TnebGpuxm3eoV9-MPlcdmwuTc",
       "upstreamUpdated": "2026-08-05T12:33:04.397Z",
       "rules": 17,
+      "dropped": {}
+    },
+    "download-domainset": {
+      "source": "domainset/download.conf",
+      "contentHash": "X92uOnDHzwLcLZKBQUtcMkxNNcWfyULuRsZ1GsLieLk",
+      "upstreamUpdated": "2026-10-14T14:05:45.694Z",
+      "rules": 1972,
       "dropped": {}
     },
     "download": {
@@ -223,24 +214,33 @@
     },
     "reject-domainset": {
       "source": "domainset/reject.conf",
-      "contentHash": "LMSmjkLUyRRQ-KCpAczmSGAF0H7BASErdt-FnfZCVjc",
-      "upstreamUpdated": "2026-10-14T14:05:45.048Z",
-      "rules": 140302,
+      "contentHash": "RTt74fOErcCVP9wysllXjoUCLFblx3SZBMyixBI11sg",
+      "upstreamUpdated": "2026-10-15T09:44:17.757Z",
+      "rules": 140357,
+      "dropped": {}
+    },
+    "speedtest": {
+      "source": "domainset/speedtest.conf",
+      "contentHash": "7IXEFVKCTvm_gbLVe2bDL9lHGRHiBwuaf0sHfW7-0x8",
+      "upstreamUpdated": "2026-10-14T20:40:33.102Z",
+      "rules": 3428,
       "dropped": {}
     },
     "cdn-domainset": {
       "source": "domainset/cdn.conf",
-      "contentHash": "3zCziQCXo2qbpqDKBzW-VQ-wecFPZwOp_Qp95c7TTh8",
-      "upstreamUpdated": "2026-10-14T14:05:45.693Z",
-      "rules": 4688,
+      "contentHash": "Qh0liooNfW_tCnI4oWGDYvoc9dnOM2_GjRM-2Ja0uLY",
+      "upstreamUpdated": "2026-10-15T09:44:19.404Z",
+      "rules": 4689,
       "dropped": {}
     },
-    "download-domainset": {
-      "source": "domainset/download.conf",
-      "contentHash": "X92uOnDHzwLcLZKBQUtcMkxNNcWfyULuRsZ1GsLieLk",
-      "upstreamUpdated": "2026-10-14T14:05:45.694Z",
-      "rules": 1972,
-      "dropped": {}
+    "microsoft-cdn": {
+      "source": "non_ip/microsoft_cdn.conf",
+      "contentHash": "K4RzL6JCO8505qjgAo7UXMOgd0_ar8hN8OC2pLZUhX0",
+      "upstreamUpdated": "2026-10-15T09:44:20.301Z",
+      "rules": 50,
+      "dropped": {
+        "url-regex": 2
+      }
     }
   }
 }
