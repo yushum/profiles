@@ -2,7 +2,7 @@
   "converterVersion": 2,
   "upstream": {
     "repo": "https://github.com/SukkaW/Surge",
-    "headSha": "f588a7f03d5e8c34c26971080b59d719e1ed89fd"
+    "headSha": "5974bf6e75a5a8bec367dd138d052a190caab79d"
   },
   "files": {
     "reject-drop": {
@@ -124,6 +124,15 @@
       "rules": 9,
       "dropped": {}
     },
+    "microsoft-cdn": {
+      "source": "non_ip/microsoft_cdn.conf",
+      "contentHash": "K4RzL6JCO8505qjgAo7UXMOgd0_ar8hN8OC2pLZUhX0",
+      "upstreamUpdated": "2026-10-15T09:44:20.301Z",
+      "rules": 50,
+      "dropped": {
+        "url-regex": 2
+      }
+    },
     "microsoft": {
       "source": "non_ip/microsoft.conf",
       "contentHash": "TlRZX95xyWI49Tb2ygU_MHYt2KnmC63VK2RX27P-yFw",
@@ -214,33 +223,24 @@
     },
     "reject-domainset": {
       "source": "domainset/reject.conf",
-      "contentHash": "RTt74fOErcCVP9wysllXjoUCLFblx3SZBMyixBI11sg",
-      "upstreamUpdated": "2026-10-15T09:44:17.757Z",
-      "rules": 140357,
+      "contentHash": "BfH2-J65qhe5J2g4wa7I9bXJJryuTzS-3dWHr7RNzPA",
+      "upstreamUpdated": "2026-10-16T09:24:13.960Z",
+      "rules": 140726,
       "dropped": {}
     },
     "speedtest": {
       "source": "domainset/speedtest.conf",
-      "contentHash": "7IXEFVKCTvm_gbLVe2bDL9lHGRHiBwuaf0sHfW7-0x8",
-      "upstreamUpdated": "2026-10-14T20:40:33.102Z",
-      "rules": 3428,
+      "contentHash": "Haa4iyRms4MgqgMir7lwxjBpkzDwnr3893IBNDvtufU",
+      "upstreamUpdated": "2026-10-15T20:19:40.586Z",
+      "rules": 3430,
       "dropped": {}
     },
     "cdn-domainset": {
       "source": "domainset/cdn.conf",
-      "contentHash": "Qh0liooNfW_tCnI4oWGDYvoc9dnOM2_GjRM-2Ja0uLY",
-      "upstreamUpdated": "2026-10-15T09:44:19.404Z",
-      "rules": 4689,
+      "contentHash": "vBOH2cyIIxh4cbJ1ZH-FaLVxixpkOwDuUsFypRXBy0s",
+      "upstreamUpdated": "2026-10-16T09:01:45.667Z",
+      "rules": 4691,
       "dropped": {}
-    },
-    "microsoft-cdn": {
-      "source": "non_ip/microsoft_cdn.conf",
-      "contentHash": "K4RzL6JCO8505qjgAo7UXMOgd0_ar8hN8OC2pLZUhX0",
-      "upstreamUpdated": "2026-10-15T09:44:20.301Z",
-      "rules": 50,
-      "dropped": {
-        "url-regex": 2
-      }
     }
   }
 }
