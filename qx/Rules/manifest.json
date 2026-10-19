@@ -2,7 +2,7 @@
   "converterVersion": 2,
   "upstream": {
     "repo": "https://github.com/SukkaW/Surge",
-    "headSha": "5974bf6e75a5a8bec367dd138d052a190caab79d"
+    "headSha": "395fb20a404b49523a526371049702c6098da649"
   },
   "files": {
     "reject-drop": {
@@ -198,15 +198,6 @@
         "process-name": 36
       }
     },
-    "global": {
-      "source": "non_ip/global.conf",
-      "contentHash": "74H1YSMmm9aphi-MX6BibJOJpPr0kX3SxWRjt_E9hIE",
-      "upstreamUpdated": "2026-10-08T10:17:52.347Z",
-      "rules": 1273,
-      "dropped": {
-        "user-agent": 1
-      }
-    },
     "ip-reject": {
       "source": "ip/reject.conf",
       "contentHash": "N1VF7BudxwIJolI6Ue4lXcqK4PG-XX4kxXtZL-QmYQI",
@@ -223,24 +214,33 @@
     },
     "reject-domainset": {
       "source": "domainset/reject.conf",
-      "contentHash": "BfH2-J65qhe5J2g4wa7I9bXJJryuTzS-3dWHr7RNzPA",
-      "upstreamUpdated": "2026-10-16T09:24:13.960Z",
-      "rules": 140726,
+      "contentHash": "1cydMBJoaKc773d0Ygq1scD5lt-4OYNIgS6ZdX0u8eQ",
+      "upstreamUpdated": "2026-10-19T10:48:28.309Z",
+      "rules": 140962,
       "dropped": {}
     },
     "speedtest": {
       "source": "domainset/speedtest.conf",
-      "contentHash": "Haa4iyRms4MgqgMir7lwxjBpkzDwnr3893IBNDvtufU",
-      "upstreamUpdated": "2026-10-15T20:19:40.586Z",
-      "rules": 3430,
+      "contentHash": "79FlFW9mS1MxMqiC9RGuCnifDc72yoixKQWto-PuG0M",
+      "upstreamUpdated": "2026-10-18T19:25:02.293Z",
+      "rules": 3440,
       "dropped": {}
     },
     "cdn-domainset": {
       "source": "domainset/cdn.conf",
-      "contentHash": "vBOH2cyIIxh4cbJ1ZH-FaLVxixpkOwDuUsFypRXBy0s",
-      "upstreamUpdated": "2026-10-16T09:01:45.667Z",
-      "rules": 4691,
+      "contentHash": "H3gONQNoDjU99BRyHnZGZMI638YWNDtF0lFZv7rqQk0",
+      "upstreamUpdated": "2026-10-19T06:11:54.136Z",
+      "rules": 4694,
       "dropped": {}
+    },
+    "global": {
+      "source": "non_ip/global.conf",
+      "contentHash": "zX5qzOCxIHFOzFwYUEoeqHmfcDZG-3k6Rn7MHyJVEZY",
+      "upstreamUpdated": "2026-10-19T06:11:53.650Z",
+      "rules": 1274,
+      "dropped": {
+        "user-agent": 1
+      }
     }
   }
 }
