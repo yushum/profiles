@@ -2,7 +2,7 @@
   "converterVersion": 2,
   "upstream": {
     "repo": "https://github.com/SukkaW/Surge",
-    "headSha": "ce425491ed5ac4b3904fee36403a84c026722120"
+    "headSha": "1b33f30b8277e9a24186bb9dfda71132102d7ea2"
   },
   "files": {
     "reject-drop": {
@@ -10,13 +10,6 @@
       "contentHash": "O5LorNmqJuxol6-Y3WgqPE9Iszdz1BAQennk_Ad6ktk",
       "upstreamUpdated": "2026-08-30T07:31:52.226Z",
       "rules": 28,
-      "dropped": {}
-    },
-    "reject-domainset": {
-      "source": "domainset/reject.conf",
-      "contentHash": "QIrD_Oo9QRH63M2c2hwi-SpxsxGc21m7AvIJtmkNerI",
-      "upstreamUpdated": "2026-10-21T10:12:57.929Z",
-      "rules": 144213,
       "dropped": {}
     },
     "reject": {
@@ -46,27 +39,6 @@
         "user-agent": 2,
         "process-name": 3
       }
-    },
-    "speedtest": {
-      "source": "domainset/speedtest.conf",
-      "contentHash": "HIUzyb7bszHkvksZp6lnxrPEH_YtRA1AunoxN1FcXx4",
-      "upstreamUpdated": "2026-10-20T20:33:37.653Z",
-      "rules": 3443,
-      "dropped": {}
-    },
-    "cdn-domainset": {
-      "source": "domainset/cdn.conf",
-      "contentHash": "VwTPhNRsGl9sbhi1_2HCuPkkfBy3K8BNp9Uaa5V07Zs",
-      "upstreamUpdated": "2026-10-21T13:45:24.421Z",
-      "rules": 4698,
-      "dropped": {}
-    },
-    "cdn": {
-      "source": "non_ip/cdn.conf",
-      "contentHash": "Te3I2rxqrVemcH37iZZ1K1_wCy3mbYzhccHQyzHX8Hk",
-      "upstreamUpdated": "2026-10-08T10:17:52.439Z",
-      "rules": 84,
-      "dropped": {}
     },
     "stream": {
       "source": "non_ip/stream.conf",
@@ -240,6 +212,34 @@
       "contentHash": "MtVGNUmHRxFWknlTrfbeedjKU1N8e17g1u26PWcFVAU",
       "upstreamUpdated": "2026-08-05T12:33:04.393Z",
       "rules": 2,
+      "dropped": {}
+    },
+    "reject-domainset": {
+      "source": "domainset/reject.conf",
+      "contentHash": "iZ5F5mOlbdO0dpB6BsU0uvAscoc6YoCwhtB2srpBxao",
+      "upstreamUpdated": "2026-10-23T06:28:08.728Z",
+      "rules": 144484,
+      "dropped": {}
+    },
+    "speedtest": {
+      "source": "domainset/speedtest.conf",
+      "contentHash": "mSxyjP132h4pT5tL8ah39ljvFk1z7FE-AQLOWCXYpWc",
+      "upstreamUpdated": "2026-10-22T20:32:54.248Z",
+      "rules": 3447,
+      "dropped": {}
+    },
+    "cdn-domainset": {
+      "source": "domainset/cdn.conf",
+      "contentHash": "2ztnRBSvmcH9SeasY43C-XIPzviIfsRILVDHqGpqe2E",
+      "upstreamUpdated": "2026-10-23T06:28:09.470Z",
+      "rules": 4705,
+      "dropped": {}
+    },
+    "cdn": {
+      "source": "non_ip/cdn.conf",
+      "contentHash": "2-A-ua7q9c1-wq44SGiChuwVtDSUsjXRsN7wZJVQiU4",
+      "upstreamUpdated": "2026-10-23T06:28:09.042Z",
+      "rules": 85,
       "dropped": {}
     }
   }
