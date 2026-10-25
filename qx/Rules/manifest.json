@@ -2,7 +2,7 @@
   "converterVersion": 2,
   "upstream": {
     "repo": "https://github.com/SukkaW/Surge",
-    "headSha": "f3fe4bd736d03d733fcb9d25b5113471419e3d66"
+    "headSha": "3e28f9b9497756a7a345926c8bc5b4e70878e6dc"
   },
   "files": {
     "reject-drop": {
@@ -39,6 +39,13 @@
         "user-agent": 2,
         "process-name": 3
       }
+    },
+    "speedtest": {
+      "source": "domainset/speedtest.conf",
+      "contentHash": "f0K0WlSqzGZX5KrP-7LyoQMcPkEtDWXim1n3_jHfQ54",
+      "upstreamUpdated": "2026-10-24T19:28:41.929Z",
+      "rules": 3453,
+      "dropped": {}
     },
     "cdn": {
       "source": "non_ip/cdn.conf",
@@ -156,13 +163,6 @@
       "rules": 17,
       "dropped": {}
     },
-    "download-domainset": {
-      "source": "domainset/download.conf",
-      "contentHash": "HUfLr3eJFgcp-wTAltvg0bhAOuKe_B2vC4hsBsCSHbc",
-      "upstreamUpdated": "2026-10-20T10:31:49.716Z",
-      "rules": 1971,
-      "dropped": {}
-    },
     "download": {
       "source": "non_ip/download.conf",
       "contentHash": "Yl6ZX6RG9FLOB_BLmHsFfEIamzPZ6LaflomfWznqQkY",
@@ -223,23 +223,23 @@
     },
     "reject-domainset": {
       "source": "domainset/reject.conf",
-      "contentHash": "TGnztCqCUuuA9cfnlVYkZO1a6zAqsCTS8EqBDLYOrFU",
-      "upstreamUpdated": "2026-10-25T08:57:02.401Z",
-      "rules": 144690,
-      "dropped": {}
-    },
-    "speedtest": {
-      "source": "domainset/speedtest.conf",
-      "contentHash": "f0K0WlSqzGZX5KrP-7LyoQMcPkEtDWXim1n3_jHfQ54",
-      "upstreamUpdated": "2026-10-24T19:28:41.929Z",
-      "rules": 3453,
+      "contentHash": "YThAcW6cMF3HxDx3bnRvpT3wS8Xa1Shj5TO4CYjhtr8",
+      "upstreamUpdated": "2026-10-25T13:45:20.253Z",
+      "rules": 144758,
       "dropped": {}
     },
     "cdn-domainset": {
       "source": "domainset/cdn.conf",
-      "contentHash": "oYsY5x-Hy_RNOCZCY6z0c5OFhy5H76LPGoVp4bmWqQ4",
-      "upstreamUpdated": "2026-10-25T08:57:02.975Z",
-      "rules": 4710,
+      "contentHash": "BeMHcgfVI9tvVNdbWY0LwoBu9QSELLCYgZ4feRClQrA",
+      "upstreamUpdated": "2026-10-25T13:45:20.902Z",
+      "rules": 4694,
+      "dropped": {}
+    },
+    "download-domainset": {
+      "source": "domainset/download.conf",
+      "contentHash": "0ILru6DsE3pLfGUNMXMsglG2-zH64d3eduU_H_OTXXw",
+      "upstreamUpdated": "2026-10-25T13:45:20.905Z",
+      "rules": 1967,
       "dropped": {}
     }
   }
