@@ -2,7 +2,7 @@
   "converterVersion": 2,
   "upstream": {
     "repo": "https://github.com/SukkaW/Surge",
-    "headSha": "0716917d9e634af7ee9227439f9be9768fc8f6de"
+    "headSha": "4d3fd8fed137159305427af377349b3c52664315"
   },
   "files": {
     "reject-drop": {
@@ -40,11 +40,11 @@
         "process-name": 3
       }
     },
-    "speedtest": {
-      "source": "domainset/speedtest.conf",
-      "contentHash": "f0K0WlSqzGZX5KrP-7LyoQMcPkEtDWXim1n3_jHfQ54",
-      "upstreamUpdated": "2026-10-24T19:28:41.929Z",
-      "rules": 3453,
+    "cdn-domainset": {
+      "source": "domainset/cdn.conf",
+      "contentHash": "78PqsMRqNkh2DAJydR0OKDFc5MKIGZA-jvrCd0f59JM",
+      "upstreamUpdated": "2026-10-25T14:57:54.006Z",
+      "rules": 4695,
       "dropped": {}
     },
     "cdn": {
@@ -85,13 +85,6 @@
       "contentHash": "mM7ABwLpXn1--ksvD1oM7ChSbu1LyTRYRKRZhT-up34",
       "upstreamUpdated": "2026-08-05T12:33:04.404Z",
       "rules": 5,
-      "dropped": {}
-    },
-    "ip-ai": {
-      "source": "ip/ai.conf",
-      "contentHash": "esjnL8fgUvtKHtXItRQXOYTkOOp2cLR6i5TQMXoupo4",
-      "upstreamUpdated": "2026-10-03T12:41:14.900Z",
-      "rules": 24,
       "dropped": {}
     },
     "telegram": {
@@ -163,6 +156,13 @@
       "rules": 17,
       "dropped": {}
     },
+    "download-domainset": {
+      "source": "domainset/download.conf",
+      "contentHash": "ZUTLv19fYjIbRKecMbSBKVoXiw6SytQGyuwNWuDt1yY",
+      "upstreamUpdated": "2026-10-25T14:53:23.056Z",
+      "rules": 1968,
+      "dropped": {}
+    },
     "download": {
       "source": "non_ip/download.conf",
       "contentHash": "Yl6ZX6RG9FLOB_BLmHsFfEIamzPZ6LaflomfWznqQkY",
@@ -223,23 +223,23 @@
     },
     "reject-domainset": {
       "source": "domainset/reject.conf",
-      "contentHash": "Tw0NaHFyEkwnlD0ubL5oZRmv_kbknZAAgg_atAknccM",
-      "upstreamUpdated": "2026-10-25T14:53:22.542Z",
-      "rules": 144774,
+      "contentHash": "uhiaOKnb8TwTIFGDOd7NkCgBxeSWnvXwV7cZnWBPYag",
+      "upstreamUpdated": "2026-10-26T15:58:05.383Z",
+      "rules": 141481,
       "dropped": {}
     },
-    "cdn-domainset": {
-      "source": "domainset/cdn.conf",
-      "contentHash": "78PqsMRqNkh2DAJydR0OKDFc5MKIGZA-jvrCd0f59JM",
-      "upstreamUpdated": "2026-10-25T14:57:54.006Z",
-      "rules": 4695,
+    "speedtest": {
+      "source": "domainset/speedtest.conf",
+      "contentHash": "JgFBTqg6Q49-ukZJO7dcOK41KJvyaqIuAvsl7uybImc",
+      "upstreamUpdated": "2026-10-25T19:34:55.837Z",
+      "rules": 3454,
       "dropped": {}
     },
-    "download-domainset": {
-      "source": "domainset/download.conf",
-      "contentHash": "ZUTLv19fYjIbRKecMbSBKVoXiw6SytQGyuwNWuDt1yY",
-      "upstreamUpdated": "2026-10-25T14:53:23.056Z",
-      "rules": 1968,
+    "ip-ai": {
+      "source": "ip/ai.conf",
+      "contentHash": "qyUPK9T3mbon0OaaSmkA58de_Ftjjrq_vxFw6Sshpl4",
+      "upstreamUpdated": "2026-10-25T19:34:56.240Z",
+      "rules": 151,
       "dropped": {}
     }
   }
