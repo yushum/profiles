@@ -2,7 +2,7 @@
   "converterVersion": 2,
   "upstream": {
     "repo": "https://github.com/SukkaW/Surge",
-    "headSha": "4d3fd8fed137159305427af377349b3c52664315"
+    "headSha": "33830e0c4efdedd34c71e5b9ef1e487c9fcbee84"
   },
   "files": {
     "reject-drop": {
@@ -39,13 +39,6 @@
         "user-agent": 2,
         "process-name": 3
       }
-    },
-    "cdn-domainset": {
-      "source": "domainset/cdn.conf",
-      "contentHash": "78PqsMRqNkh2DAJydR0OKDFc5MKIGZA-jvrCd0f59JM",
-      "upstreamUpdated": "2026-10-25T14:57:54.006Z",
-      "rules": 4695,
-      "dropped": {}
     },
     "cdn": {
       "source": "non_ip/cdn.conf",
@@ -207,13 +200,6 @@
         "user-agent": 1
       }
     },
-    "ip-reject": {
-      "source": "ip/reject.conf",
-      "contentHash": "nVyXeNla7XlMGHKfKc--ww4Z2yGzZlCYDiul_ZJn_2A",
-      "upstreamUpdated": "2026-10-20T10:06:29.592Z",
-      "rules": 780,
-      "dropped": {}
-    },
     "ip-domestic": {
       "source": "ip/domestic.conf",
       "contentHash": "MtVGNUmHRxFWknlTrfbeedjKU1N8e17g1u26PWcFVAU",
@@ -223,23 +209,37 @@
     },
     "reject-domainset": {
       "source": "domainset/reject.conf",
-      "contentHash": "uhiaOKnb8TwTIFGDOd7NkCgBxeSWnvXwV7cZnWBPYag",
-      "upstreamUpdated": "2026-10-26T15:58:05.383Z",
-      "rules": 141481,
+      "contentHash": "bpFDZ4CG-F-w9lzMFY9H2k8wMYJjjNVSx8fxJ8guri0",
+      "upstreamUpdated": "2026-10-28T16:04:30.125Z",
+      "rules": 145469,
       "dropped": {}
     },
     "speedtest": {
       "source": "domainset/speedtest.conf",
-      "contentHash": "JgFBTqg6Q49-ukZJO7dcOK41KJvyaqIuAvsl7uybImc",
-      "upstreamUpdated": "2026-10-25T19:34:55.837Z",
-      "rules": 3454,
+      "contentHash": "ke43IkbJ2vLpAMSim4vCyice-L74YZ7lBHgwHVw7qYc",
+      "upstreamUpdated": "2026-10-27T21:16:40.207Z",
+      "rules": 3457,
+      "dropped": {}
+    },
+    "cdn-domainset": {
+      "source": "domainset/cdn.conf",
+      "contentHash": "tPXU7t-HaA32vfRfIArd_5FiUqppqpVKy2XA3fJmpv4",
+      "upstreamUpdated": "2026-10-28T16:04:31.071Z",
+      "rules": 4697,
       "dropped": {}
     },
     "ip-ai": {
       "source": "ip/ai.conf",
-      "contentHash": "qyUPK9T3mbon0OaaSmkA58de_Ftjjrq_vxFw6Sshpl4",
-      "upstreamUpdated": "2026-10-25T19:34:56.240Z",
-      "rules": 151,
+      "contentHash": "hvtLyQ0LUvf3LfygqTx6LmR8NriVPfBLr32nbjcgXT4",
+      "upstreamUpdated": "2026-10-28T11:21:51.822Z",
+      "rules": 401,
+      "dropped": {}
+    },
+    "ip-reject": {
+      "source": "ip/reject.conf",
+      "contentHash": "Apf3yR3lQpO95qb8_dEo1zjUTx7Sx-_TxqS6djTmY2o",
+      "upstreamUpdated": "2026-10-28T11:21:51.114Z",
+      "rules": 781,
       "dropped": {}
     }
   }
