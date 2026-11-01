@@ -2,16 +2,9 @@
   "converterVersion": 2,
   "upstream": {
     "repo": "https://github.com/SukkaW/Surge",
-    "headSha": "2ee066d7255db0ada982e37673ff4ad1e261634f"
+    "headSha": "0cf1cc9fc7e7fdd9473736126856a58b76ff9307"
   },
   "files": {
-    "reject-drop": {
-      "source": "non_ip/reject-drop.conf",
-      "contentHash": "O5LorNmqJuxol6-Y3WgqPE9Iszdz1BAQennk_Ad6ktk",
-      "upstreamUpdated": "2026-08-30T07:31:52.226Z",
-      "rules": 28,
-      "dropped": {}
-    },
     "reject": {
       "source": "non_ip/reject.conf",
       "contentHash": "INrGk-ezCTScFnqNxL7XBzfCDbushJo09K91o1iOpjc",
@@ -205,6 +198,15 @@
         "process-name": 36
       }
     },
+    "global": {
+      "source": "non_ip/global.conf",
+      "contentHash": "YHGpTn9t9tvWQMj8keK8ibhbMiBE1QsH5esYt-Sx3Ik",
+      "upstreamUpdated": "2026-10-30T12:53:49.104Z",
+      "rules": 1275,
+      "dropped": {
+        "user-agent": 1
+      }
+    },
     "ip-reject": {
       "source": "ip/reject.conf",
       "contentHash": "Apf3yR3lQpO95qb8_dEo1zjUTx7Sx-_TxqS6djTmY2o",
@@ -219,28 +221,26 @@
       "rules": 2,
       "dropped": {}
     },
+    "reject-drop": {
+      "source": "non_ip/reject-drop.conf",
+      "contentHash": "NfN_bAheTXtg-hQ7E26mcletvHukoHBCol0GALVKPL4",
+      "upstreamUpdated": "2026-11-01T07:23:42.385Z",
+      "rules": 30,
+      "dropped": {}
+    },
     "reject-domainset": {
       "source": "domainset/reject.conf",
-      "contentHash": "LaVv-4PDGMWNTu15Cb2mQBQwNKIVrezJhxjO9butZng",
-      "upstreamUpdated": "2026-10-30T12:53:48.937Z",
-      "rules": 145838,
+      "contentHash": "UnQNRbU74aLkkTywU2sD2TEIphIN9vBy1u3zvfjcNv4",
+      "upstreamUpdated": "2026-11-01T07:23:41.932Z",
+      "rules": 146236,
       "dropped": {}
     },
     "speedtest": {
       "source": "domainset/speedtest.conf",
-      "contentHash": "qbLLNQi7ne50228UM8joLctNRGoMWMjQCksDW7CHs4M",
-      "upstreamUpdated": "2026-10-29T21:47:13.066Z",
-      "rules": 3460,
+      "contentHash": "6bpM70dWic-C-4vrs1JuOHStvahyUMnpz_Spw3B7iLw",
+      "upstreamUpdated": "2026-10-30T21:28:36.355Z",
+      "rules": 3461,
       "dropped": {}
-    },
-    "global": {
-      "source": "non_ip/global.conf",
-      "contentHash": "YHGpTn9t9tvWQMj8keK8ibhbMiBE1QsH5esYt-Sx3Ik",
-      "upstreamUpdated": "2026-10-30T12:53:49.104Z",
-      "rules": 1275,
-      "dropped": {
-        "user-agent": 1
-      }
     }
   }
 }
