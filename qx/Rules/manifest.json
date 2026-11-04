@@ -2,16 +2,9 @@
   "converterVersion": 2,
   "upstream": {
     "repo": "https://github.com/SukkaW/Surge",
-    "headSha": "d46d9ca1a28e74f2a40f6c0bae93569f85c3aa75"
+    "headSha": "17833159009a1d9390bf0e80c8a47b391bb4dc9e"
   },
   "files": {
-    "reject-drop": {
-      "source": "non_ip/reject-drop.conf",
-      "contentHash": "NfN_bAheTXtg-hQ7E26mcletvHukoHBCol0GALVKPL4",
-      "upstreamUpdated": "2026-11-01T07:23:42.385Z",
-      "rules": 30,
-      "dropped": {}
-    },
     "reject": {
       "source": "non_ip/reject.conf",
       "contentHash": "INrGk-ezCTScFnqNxL7XBzfCDbushJo09K91o1iOpjc",
@@ -39,20 +32,6 @@
         "user-agent": 2,
         "process-name": 3
       }
-    },
-    "speedtest": {
-      "source": "domainset/speedtest.conf",
-      "contentHash": "6bpM70dWic-C-4vrs1JuOHStvahyUMnpz_Spw3B7iLw",
-      "upstreamUpdated": "2026-10-30T21:28:36.355Z",
-      "rules": 3461,
-      "dropped": {}
-    },
-    "cdn-domainset": {
-      "source": "domainset/cdn.conf",
-      "contentHash": "tPXU7t-HaA32vfRfIArd_5FiUqppqpVKy2XA3fJmpv4",
-      "upstreamUpdated": "2026-10-28T16:04:31.071Z",
-      "rules": 4697,
-      "dropped": {}
     },
     "cdn": {
       "source": "non_ip/cdn.conf",
@@ -235,11 +214,32 @@
       "rules": 2,
       "dropped": {}
     },
+    "reject-drop": {
+      "source": "non_ip/reject-drop.conf",
+      "contentHash": "8-tP-tZx1gxM9UU-KU5ADxzy4lAFyqkCWUk_yP78uvY",
+      "upstreamUpdated": "2026-11-04T07:38:37.359Z",
+      "rules": 31,
+      "dropped": {}
+    },
     "reject-domainset": {
       "source": "domainset/reject.conf",
-      "contentHash": "rzhDAU0UaZp70IE4dqG8hJ15lZ7tWmhGsRqHSX_yCFo",
-      "upstreamUpdated": "2026-11-01T11:51:31.597Z",
-      "rules": 146327,
+      "contentHash": "GUCr8oZ51bWA2P1QDQzdnrGOVMqeQwWRHbG-Gy_j4nA",
+      "upstreamUpdated": "2026-11-04T07:38:37.144Z",
+      "rules": 147970,
+      "dropped": {}
+    },
+    "speedtest": {
+      "source": "domainset/speedtest.conf",
+      "contentHash": "fHLF6jxKhSQ699K8afO5cxRAl4oHMw3n580GloxLOCc",
+      "upstreamUpdated": "2026-11-03T22:16:56.281Z",
+      "rules": 3466,
+      "dropped": {}
+    },
+    "cdn-domainset": {
+      "source": "domainset/cdn.conf",
+      "contentHash": "zHgbe8SbC0XuR0EziCDdBH6hDSyOLlW2DlalLF6VtnQ",
+      "upstreamUpdated": "2026-11-04T07:38:37.836Z",
+      "rules": 4698,
       "dropped": {}
     }
   }
