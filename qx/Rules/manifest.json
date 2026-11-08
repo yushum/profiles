@@ -2,7 +2,7 @@
   "converterVersion": 2,
   "upstream": {
     "repo": "https://github.com/SukkaW/Surge",
-    "headSha": "630653199388c677a030045b1744676a257992a9"
+    "headSha": "6cc5fac87a6e653c0d542210ef5f3590ba09e6c4"
   },
   "files": {
     "reject-drop": {
@@ -186,6 +186,15 @@
       "rules": 49,
       "dropped": {}
     },
+    "domestic": {
+      "source": "non_ip/domestic.conf",
+      "contentHash": "gNEtFZTFRC9JO1efrlNeTZOOhOdo0qMAoECNQxaCxcc",
+      "upstreamUpdated": "2026-11-05T06:05:13.811Z",
+      "rules": 870,
+      "dropped": {
+        "user-agent": 3
+      }
+    },
     "direct": {
       "source": "non_ip/direct.conf",
       "contentHash": "cHGPw28cUlHeJPPagi8Xu_fFZ8zOSPij9yiiZy5La3M",
@@ -205,13 +214,6 @@
         "user-agent": 1
       }
     },
-    "ip-reject": {
-      "source": "ip/reject.conf",
-      "contentHash": "Apf3yR3lQpO95qb8_dEo1zjUTx7Sx-_TxqS6djTmY2o",
-      "upstreamUpdated": "2026-10-28T11:21:51.114Z",
-      "rules": 781,
-      "dropped": {}
-    },
     "ip-domestic": {
       "source": "ip/domestic.conf",
       "contentHash": "MtVGNUmHRxFWknlTrfbeedjKU1N8e17g1u26PWcFVAU",
@@ -221,26 +223,24 @@
     },
     "reject-domainset": {
       "source": "domainset/reject.conf",
-      "contentHash": "-Bd3a1Oq5S8P0JDZhd1LD4nkurbPadZNejTk3ViPy8E",
-      "upstreamUpdated": "2026-11-05T06:05:13.438Z",
-      "rules": 148069,
+      "contentHash": "vJXr0QLsqyfH_BDOIg2m-7My7xb6SN8KX0kR2I3aaPU",
+      "upstreamUpdated": "2026-11-08T14:15:45.173Z",
+      "rules": 149692,
       "dropped": {}
     },
     "speedtest": {
       "source": "domainset/speedtest.conf",
-      "contentHash": "L845Tf_mYIEpIR8K6xqWfWRCq9-dFFV2dQsztwSOK2g",
-      "upstreamUpdated": "2026-11-04T22:36:37.723Z",
-      "rules": 3468,
+      "contentHash": "xypNve0Vf91BBkx3B-Ey_R3_Be1EhalUFuYZuI-2qa8",
+      "upstreamUpdated": "2026-11-07T20:51:44.391Z",
+      "rules": 3479,
       "dropped": {}
     },
-    "domestic": {
-      "source": "non_ip/domestic.conf",
-      "contentHash": "gNEtFZTFRC9JO1efrlNeTZOOhOdo0qMAoECNQxaCxcc",
-      "upstreamUpdated": "2026-11-05T06:05:13.811Z",
-      "rules": 870,
-      "dropped": {
-        "user-agent": 3
-      }
+    "ip-reject": {
+      "source": "ip/reject.conf",
+      "contentHash": "oQ0ICoXUUFYmBmZbJHaen4fjukUNf_w5mxksanhnE1M",
+      "upstreamUpdated": "2026-11-05T13:13:57.090Z",
+      "rules": 783,
+      "dropped": {}
     }
   }
 }
