@@ -2,7 +2,7 @@
   "converterVersion": 2,
   "upstream": {
     "repo": "https://github.com/SukkaW/Surge",
-    "headSha": "68ddf5cad4581085a0e59d15923579e358a3161e"
+    "headSha": "9d7bb606021107c5cd13eb59cd23744638cce73f"
   },
   "files": {
     "reject-drop": {
@@ -40,13 +40,6 @@
         "process-name": 3
       }
     },
-    "speedtest": {
-      "source": "domainset/speedtest.conf",
-      "contentHash": "N0oVksiA4qStaY88AFJQQi1cNB67SdBDexMQP5Kcm2I",
-      "upstreamUpdated": "2026-11-11T23:26:58.202Z",
-      "rules": 3488,
-      "dropped": {}
-    },
     "cdn": {
       "source": "non_ip/cdn.conf",
       "contentHash": "2-A-ua7q9c1-wq44SGiChuwVtDSUsjXRsN7wZJVQiU4",
@@ -70,15 +63,6 @@
       "upstreamUpdated": "2026-08-05T12:33:03.807Z",
       "rules": 19,
       "dropped": {}
-    },
-    "ai": {
-      "source": "non_ip/ai.conf",
-      "contentHash": "zEhGllCXs-oKaXAmNQsLUfzQltqnMxOAp-rbeQDnGJw",
-      "upstreamUpdated": "2026-10-12T11:45:42.734Z",
-      "rules": 54,
-      "dropped": {
-        "url-regex": 1
-      }
     },
     "apple-intelligence": {
       "source": "non_ip/apple_intelligence.conf",
@@ -186,6 +170,15 @@
       "rules": 49,
       "dropped": {}
     },
+    "domestic": {
+      "source": "non_ip/domestic.conf",
+      "contentHash": "N_pdVXp8iyfQrUnc5h51pGhpsRxOaznwpIfGTXJ5iAY",
+      "upstreamUpdated": "2026-11-13T09:34:28.808Z",
+      "rules": 872,
+      "dropped": {
+        "user-agent": 3
+      }
+    },
     "direct": {
       "source": "non_ip/direct.conf",
       "contentHash": "cHGPw28cUlHeJPPagi8Xu_fFZ8zOSPij9yiiZy5La3M",
@@ -221,25 +214,32 @@
     },
     "reject-domainset": {
       "source": "domainset/reject.conf",
-      "contentHash": "ZJ1-voOJK0zZsS8XKR1meSy8Vhvj72FrCuLPhXPXj-g",
-      "upstreamUpdated": "2026-11-13T09:34:28.440Z",
-      "rules": 149586,
+      "contentHash": "4UBSQQmDYwBNtEnznyxr5ufRGYnndgEWzWp6s_DQ0sI",
+      "upstreamUpdated": "2026-11-15T14:58:31.698Z",
+      "rules": 150142,
+      "dropped": {}
+    },
+    "speedtest": {
+      "source": "domainset/speedtest.conf",
+      "contentHash": "pf78XflvUHcv6RDrSpYChEj6XXkENdHAAXi-EKtvG_8",
+      "upstreamUpdated": "2026-11-14T21:27:08.636Z",
+      "rules": 3493,
       "dropped": {}
     },
     "cdn-domainset": {
       "source": "domainset/cdn.conf",
-      "contentHash": "g4FAOGMkSsw7Mw0-Na8lvH6ZbtTLhAcCfVZhhFUtS4U",
-      "upstreamUpdated": "2026-11-13T08:54:24.339Z",
-      "rules": 4700,
+      "contentHash": "6uM5hSmMY1rld61sUhRhy2byUu2k9-NufSDcMk0ch8k",
+      "upstreamUpdated": "2026-11-15T14:06:23.819Z",
+      "rules": 4702,
       "dropped": {}
     },
-    "domestic": {
-      "source": "non_ip/domestic.conf",
-      "contentHash": "N_pdVXp8iyfQrUnc5h51pGhpsRxOaznwpIfGTXJ5iAY",
-      "upstreamUpdated": "2026-11-13T09:34:28.808Z",
-      "rules": 872,
+    "ai": {
+      "source": "non_ip/ai.conf",
+      "contentHash": "llsbptQtp1iJSCMX20oO9ODcbilrqWqquo6yCLsMh3s",
+      "upstreamUpdated": "2026-11-15T15:00:49.984Z",
+      "rules": 57,
       "dropped": {
-        "user-agent": 3
+        "url-regex": 1
       }
     }
   }
