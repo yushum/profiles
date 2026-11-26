@@ -2,7 +2,7 @@
   "converterVersion": 2,
   "upstream": {
     "repo": "https://github.com/SukkaW/Surge",
-    "headSha": "cb2876a055ed622e97eb17cd0fcd6f74cb0b5ebb"
+    "headSha": "03e8353579dee3d9dd47c3e253db7b81ccad6f3b"
   },
   "files": {
     "reject-drop": {
@@ -39,13 +39,6 @@
         "user-agent": 2,
         "process-name": 3
       }
-    },
-    "cdn-domainset": {
-      "source": "domainset/cdn.conf",
-      "contentHash": "48alCUWr9U0SiDxZckpmgMpu3Fx5F7wv8R8WKr5T1MY",
-      "upstreamUpdated": "2026-11-20T07:40:25.044Z",
-      "rules": 4707,
-      "dropped": {}
     },
     "cdn": {
       "source": "non_ip/cdn.conf",
@@ -85,13 +78,6 @@
       "contentHash": "mM7ABwLpXn1--ksvD1oM7ChSbu1LyTRYRKRZhT-up34",
       "upstreamUpdated": "2026-08-05T12:33:04.404Z",
       "rules": 5,
-      "dropped": {}
-    },
-    "ip-ai": {
-      "source": "ip/ai.conf",
-      "contentHash": "Vq3XwYqejg1KWwCHBzA691nQPy9QFMZMnvFEXI2_AmU",
-      "upstreamUpdated": "2026-11-16T06:05:14.093Z",
-      "rules": 410,
       "dropped": {}
     },
     "telegram": {
@@ -230,16 +216,30 @@
     },
     "reject-domainset": {
       "source": "domainset/reject.conf",
-      "contentHash": "3Vguh2RAFX0Rl6t_azT44k6pWgEKVQ5OAkmnNh7Tcjc",
-      "upstreamUpdated": "2026-11-23T07:57:09.423Z",
-      "rules": 148601,
+      "contentHash": "kyvSrT1XurKxZUGoY0mwYlMRNDDQ0-WlM8xhX1EVdeU",
+      "upstreamUpdated": "2026-11-26T08:43:15.805Z",
+      "rules": 151959,
       "dropped": {}
     },
     "speedtest": {
       "source": "domainset/speedtest.conf",
-      "contentHash": "yMCo9KhzdognHF_-vQ0RG4C98xnUpVFEk5yOh3FzRtY",
-      "upstreamUpdated": "2026-11-22T22:27:35.722Z",
-      "rules": 3503,
+      "contentHash": "lLQu0UdFQXnCPHmfMCZiP3aecpQbF8pvZdRd_NNQcB8",
+      "upstreamUpdated": "2026-11-26T00:58:55.527Z",
+      "rules": 3510,
+      "dropped": {}
+    },
+    "cdn-domainset": {
+      "source": "domainset/cdn.conf",
+      "contentHash": "N6sxrU8ZVAcXev1dzkc0ZwEsGfQxXUDedIh7Sdnga_g",
+      "upstreamUpdated": "2026-11-26T08:43:16.325Z",
+      "rules": 4706,
+      "dropped": {}
+    },
+    "ip-ai": {
+      "source": "ip/ai.conf",
+      "contentHash": "bgNxuADFvgTTjEYqxKmIYJzjrS7stJB4_eFVv73K9XA",
+      "upstreamUpdated": "2026-11-25T01:24:44.068Z",
+      "rules": 443,
       "dropped": {}
     }
   }
